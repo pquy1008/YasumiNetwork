@@ -12,6 +12,11 @@
 		0609C0D821EF12D20078452B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0609C0D621EF12D20078452B /* Main.storyboard */; };
 		0609C0DA21EF12D50078452B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0609C0D921EF12D50078452B /* Assets.xcassets */; };
 		0609C0DD21EF12D50078452B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0609C0DB21EF12D50078452B /* LaunchScreen.storyboard */; };
+		0609C0E521EF15960078452B /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E421EF15960078452B /* Designable.swift */; };
+		0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E621EF188D0078452B /* LoginViewController.swift */; };
+		067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B721EF33CD004F09AE /* HomeViewController.swift */; };
+		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
+		067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		0609C0D921EF12D50078452B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0609C0DC21EF12D50078452B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0609C0DE21EF12D50078452B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0609C0E421EF15960078452B /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
+		0609C0E621EF188D0078452B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		067F98B721EF33CD004F09AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,59 @@
 		0609C0D121EF12D20078452B /* YasumiNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				0609C0D221EF12D20078452B /* AppDelegate.swift */,
-				0609C0D421EF12D20078452B /* ViewController.swift */,
-				0609C0D621EF12D20078452B /* Main.storyboard */,
-				0609C0D921EF12D50078452B /* Assets.xcassets */,
-				0609C0DB21EF12D50078452B /* LaunchScreen.storyboard */,
 				0609C0DE21EF12D50078452B /* Info.plist */,
+				06D2924121F09FB20074D467 /* System */,
+				06D2923F21F09F8F0074D467 /* Home */,
+				06D2923E21F09F740074D467 /* Extension */,
+				06D2923D21F09F4E0074D467 /* Global */,
+				06D2923C21F09F3C0074D467 /* Login */,
 			);
 			path = YasumiNetwork;
+			sourceTree = "<group>";
+		};
+		06D2923C21F09F3C0074D467 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0609C0E621EF188D0078452B /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		06D2923D21F09F4E0074D467 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				0609C0D221EF12D20078452B /* AppDelegate.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		06D2923E21F09F740074D467 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0609C0E421EF15960078452B /* Designable.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		06D2923F21F09F8F0074D467 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				067F98B721EF33CD004F09AE /* HomeViewController.swift */,
+				067F98B921EF3986004F09AE /* NotificationViewController.swift */,
+				067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		06D2924121F09FB20074D467 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				0609C0D921EF12D50078452B /* Assets.xcassets */,
+				0609C0D621EF12D20078452B /* Main.storyboard */,
+				0609C0D421EF12D20078452B /* ViewController.swift */,
+				0609C0DB21EF12D50078452B /* LaunchScreen.storyboard */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +190,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */,
+				0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */,
+				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
+				067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */,
 				0609C0D321EF12D20078452B /* AppDelegate.swift in Sources */,
+				0609C0E521EF15960078452B /* Designable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +343,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6UMQV43E3;
 				INFOPLIST_FILE = YasumiNetwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +362,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6UMQV43E3;
 				INFOPLIST_FILE = YasumiNetwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
