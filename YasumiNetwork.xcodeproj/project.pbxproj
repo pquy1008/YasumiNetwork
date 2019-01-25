@@ -17,9 +17,11 @@
 		067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B721EF33CD004F09AE /* HomeViewController.swift */; };
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
 		067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */; };
+		0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0685CEC621FB150D00F14E74 /* YasumiService.swift */; };
 		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
 		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
 		68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013A21F9C69E001C504F /* LeaveViewController.swift */; };
+		6A6744B878D5C0BDD48B5E48 /* Pods_YasumiNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE47A54B9E64CADC17F0EFC /* Pods_YasumiNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +37,13 @@
 		067F98B721EF33CD004F09AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrentViewController.swift; sourceTree = "<group>"; };
+		0685CEC621FB150D00F14E74 /* YasumiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiService.swift; sourceTree = "<group>"; };
 		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
 		68D9013A21F9C69E001C504F /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
+		6A0C1D7E51E891D0CFF2ADD6 /* Pods-YasumiNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YasumiNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YasumiNetwork/Pods-YasumiNetwork.debug.xcconfig"; sourceTree = "<group>"; };
+		C8D1B2238B487E18732089ED /* Pods-YasumiNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YasumiNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-YasumiNetwork/Pods-YasumiNetwork.release.xcconfig"; sourceTree = "<group>"; };
+		CAE47A54B9E64CADC17F0EFC /* Pods_YasumiNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YasumiNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6744B878D5C0BDD48B5E48 /* Pods_YasumiNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +63,8 @@
 			children = (
 				0609C0D121EF12D20078452B /* YasumiNetwork */,
 				0609C0D021EF12D20078452B /* Products */,
+				B816F16F66ABC5C4EB9C31D7 /* Pods */,
+				0A229ED2DFF0A49264DBD7A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +79,7 @@
 		0609C0D121EF12D20078452B /* YasumiNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				0685CEC521FB14FE00F14E74 /* Service */,
 				0609C0DE21EF12D50078452B /* Info.plist */,
 				06D2924121F09FB20074D467 /* System */,
 				06D2923F21F09F8F0074D467 /* Home */,
@@ -78,6 +88,14 @@
 				06D2923C21F09F3C0074D467 /* Login */,
 			);
 			path = YasumiNetwork;
+			sourceTree = "<group>";
+		};
+		0685CEC521FB14FE00F14E74 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0685CEC621FB150D00F14E74 /* YasumiService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		06D2923C21F09F3C0074D467 /* Login */ = {
@@ -127,6 +145,14 @@
 			path = System;
 			sourceTree = "<group>";
 		};
+		0A229ED2DFF0A49264DBD7A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAE47A54B9E64CADC17F0EFC /* Pods_YasumiNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		68D9013121F9C56E001C504F /* SegmentChilView */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +162,15 @@
 			path = SegmentChilView;
 			sourceTree = "<group>";
 		};
+		B816F16F66ABC5C4EB9C31D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A0C1D7E51E891D0CFF2ADD6 /* Pods-YasumiNetwork.debug.xcconfig */,
+				C8D1B2238B487E18732089ED /* Pods-YasumiNetwork.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0609C0E121EF12D50078452B /* Build configuration list for PBXNativeTarget "YasumiNetwork" */;
 			buildPhases = (
+				46338544DD03F8519C5F7741 /* [CP] Check Pods Manifest.lock */,
 				0609C0CB21EF12D20078452B /* Sources */,
 				0609C0CC21EF12D20078452B /* Frameworks */,
 				0609C0CD21EF12D20078452B /* Resources */,
+				CBA910916EF94B35D673F4F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +239,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		46338544DD03F8519C5F7741 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YasumiNetwork-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBA910916EF94B35D673F4F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YasumiNetwork/Pods-YasumiNetwork-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YasumiNetwork/Pods-YasumiNetwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0609C0CB21EF12D20078452B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -209,6 +295,7 @@
 			files = (
 				067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */,
 				0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */,
+				0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */,
 				68D9012721F96BD2001C504F /* AddViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
@@ -360,6 +447,7 @@
 		};
 		0609C0E221EF12D50078452B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A0C1D7E51E891D0CFF2ADD6 /* Pods-YasumiNetwork.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -380,6 +468,7 @@
 		};
 		0609C0E321EF12D50078452B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8D1B2238B487E18732089ED /* Pods-YasumiNetwork.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
