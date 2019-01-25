@@ -17,6 +17,9 @@
 		067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B721EF33CD004F09AE /* HomeViewController.swift */; };
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
 		067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */; };
+		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
+		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
+		68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013A21F9C69E001C504F /* LeaveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		067F98B721EF33CD004F09AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrentViewController.swift; sourceTree = "<group>"; };
+		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
+		68D9013A21F9C69E001C504F /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +107,11 @@
 		06D2923F21F09F8F0074D467 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				68D9013121F9C56E001C504F /* SegmentChilView */,
 				067F98B721EF33CD004F09AE /* HomeViewController.swift */,
 				067F98B921EF3986004F09AE /* NotificationViewController.swift */,
 				067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */,
+				68D9012621F96BD2001C504F /* AddViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -117,6 +125,15 @@
 				0609C0DB21EF12D50078452B /* LaunchScreen.storyboard */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		68D9013121F9C56E001C504F /* SegmentChilView */ = {
+			isa = PBXGroup;
+			children = (
+				68D9013821F9C68F001C504F /* YasumiViewController.swift */,
+				68D9013A21F9C69E001C504F /* LeaveViewController.swift */,
+			);
+			path = SegmentChilView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +209,11 @@
 			files = (
 				067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */,
 				0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */,
+				68D9012721F96BD2001C504F /* AddViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
+				68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */,
+				68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */,
 				067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */,
 				0609C0D321EF12D20078452B /* AppDelegate.swift in Sources */,
 				0609C0E521EF15960078452B /* Designable.swift in Sources */,
