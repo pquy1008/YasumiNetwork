@@ -12,6 +12,10 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     @IBOutlet weak var reasonTextField: UITextField!
     @IBOutlet weak var emotionTextField: UITextField!
+    @IBOutlet weak var typeTextField: UITextField!
+    @IBOutlet weak var inDayTextField: UITextField!
+    
+    @IBOutlet weak var otherReasonTextField: UITextField!
     
     @IBOutlet weak var dateTimeTextField: UITextField!
     
@@ -22,21 +26,11 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     var reasons: [String] = ["I feel not fine", "I have private reason", "other"]
     var emotions: [String] = ["happy", "sad", "afraid"]
+    var types: [String] = ["Sick Leave", "Private Leave", "Annual Leave", "Compensation Work", "Suckle a Baby"]
+    var inDays: [String] = ["ALL", "AM", "PM"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @objc func datePickerValueChange(sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.medium
-        formatter.timeStyle = DateFormatter.Style.none
-        
-        dateTimeTextField.text = formatter.string(from: sender.date)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
     }
 
     // MARK: - Picker View
@@ -50,7 +44,11 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             return reasons.count
         } else if currentTextField == emotionTextField {
             return emotions.count
-        } else {
+        } else if currentTextField == typeTextField {
+          return types.count
+        } else if currentTextField == inDayTextField {
+            return inDays.count
+        }else {
             return 0
         }
     }
@@ -60,18 +58,30 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             return reasons[row]
         } else if currentTextField == emotionTextField {
             return emotions[row]
+        } else if currentTextField == typeTextField {
+            return types[row]
+        } else if currentTextField == inDayTextField {
+            return inDays[row]
         } else {
             return ""
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.otherReasonTextField.isHidden = true
+        
         if currentTextField == reasonTextField {
             reasonTextField.text = reasons[row]
-            self.view.endEditing(true)
+            
+            if reasonTextField.text == "other" {
+                self.otherReasonTextField.isHidden = false
+            }
         } else if currentTextField == emotionTextField {
             emotionTextField.text = emotions[row]
-            self.view.endEditing(true)
+        } else if currentTextField == typeTextField {
+            typeTextField.text = types[row]
+        } else if currentTextField == inDayTextField {
+            inDayTextField.text = inDays[row]
         }
     }
     
@@ -83,20 +93,27 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             currentTextField.inputView = pickerView
         } else if currentTextField == emotionTextField {
             currentTextField.inputView = pickerView
+        } else if currentTextField == typeTextField {
+            currentTextField.inputView = pickerView
+        } else if currentTextField == inDayTextField{
+            currentTextField.inputView = pickerView
         } else if currentTextField == dateTimeTextField {
-            print("1")
             datePicker.datePickerMode = .date
             datePicker.addTarget(self, action: #selector(datePickerValueChange(sender:)), for: .valueChanged)
             dateTimeTextField.inputView = datePicker
         }
     }
     
-    @IBAction func reasonDropDownBtnAction(_ sender: Any) {
-        self.reasonTextField.becomeFirstResponder()
+    @objc func datePickerValueChange(sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
+        formatter.timeStyle = DateFormatter.Style.none
+        
+        dateTimeTextField.text = formatter.string(from: sender.date)
     }
     
-    @IBAction func emotionDropDownBtnAction(_ sender: Any) {
-        self.emotionTextField.becomeFirstResponder()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - TEST
