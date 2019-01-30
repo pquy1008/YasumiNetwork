@@ -1,0 +1,6 @@
+framework module Pods_YasumiNetwork {
+  umbrella header "Pods-YasumiNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}
