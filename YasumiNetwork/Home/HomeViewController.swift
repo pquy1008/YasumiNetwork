@@ -14,6 +14,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get feed
+        YasumiService.shared.apiGetFeed { (feeds) in
+            
+            
+            
+            self.tableView.reloadData()
+        }
     }
 }
 
