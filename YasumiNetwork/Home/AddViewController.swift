@@ -12,6 +12,7 @@ import UIKit
 class AddViewController: UIViewController {
     
     @IBOutlet weak var viewContainer: UIView!
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     lazy var yasumiViewController: YasumiViewController = {
@@ -72,5 +73,10 @@ class AddViewController: UIViewController {
         
         childViewController.didMove(toParent: self)
     }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     
 }

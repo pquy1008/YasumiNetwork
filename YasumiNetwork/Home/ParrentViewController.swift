@@ -9,12 +9,15 @@
 import UIKit
 
 class ParrentViewController: UITabBarController {
+    
+    var selectIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.delegate = self
     }
+    
 }
 
 extension ParrentViewController: UITabBarControllerDelegate {
@@ -49,5 +52,16 @@ extension ParrentViewController: UITabBarControllerDelegate {
 //
 //            self.present(alertVC, animated: true, completion: nil)
 //        }
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 1 {
+            self.selectedIndex = selectIndex
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "add") as! AddViewController
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+        selectIndex = tabBarController.selectedIndex
     }
 }
