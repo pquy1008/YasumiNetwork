@@ -20,6 +20,7 @@
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
 		067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */; };
 		0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0685CEC621FB150D00F14E74 /* YasumiService.swift */; };
+		6813916322029FE800C008D4 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813916122029FE800C008D4 /* ContentTableViewCell.swift */; };
 		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
 		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
 		68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013A21F9C69E001C504F /* LeaveViewController.swift */; };
@@ -42,6 +43,7 @@
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrentViewController.swift; sourceTree = "<group>"; };
 		0685CEC621FB150D00F14E74 /* YasumiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiService.swift; sourceTree = "<group>"; };
+		6813916122029FE800C008D4 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
 		68D9013A21F9C69E001C504F /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		06D2923F21F09F8F0074D467 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6813916022029FBF00C008D4 /* TableContent */,
 				68D9013121F9C56E001C504F /* SegmentChilView */,
 				067F98B721EF33CD004F09AE /* HomeViewController.swift */,
 				067F98B921EF3986004F09AE /* NotificationViewController.swift */,
@@ -165,6 +168,14 @@
 				CAE47A54B9E64CADC17F0EFC /* Pods_YasumiNetwork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6813916022029FBF00C008D4 /* TableContent */ = {
+			isa = PBXGroup;
+			children = (
+				6813916122029FE800C008D4 /* ContentTableViewCell.swift */,
+			);
+			path = TableContent;
 			sourceTree = "<group>";
 		};
 		68D9013121F9C56E001C504F /* SegmentChilView */ = {
@@ -318,6 +329,7 @@
 				68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */,
 				067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */,
 				0609C0D321EF12D20078452B /* AppDelegate.swift in Sources */,
+				6813916322029FE800C008D4 /* ContentTableViewCell.swift in Sources */,
 				0609C0E521EF15960078452B /* Designable.swift in Sources */,
 				06371C642201938100602909 /* Yasumi.swift in Sources */,
 			);
