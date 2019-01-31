@@ -15,7 +15,7 @@ class YasumiService: NSObject {
     static let shared = YasumiService()
     
     func apiGet(path: String, options: [String: String], success : @escaping (_ result: JSON) -> Void, error: @escaping (Error) -> Void) {
-        var endpoint = "\(Yasumi.apiBaseUri)/\(path)"
+        var endpoint = "\(Yasumi.apiBaseUri)\(path)"
         
         // Add paramester
         if options.count > 0 {
@@ -74,16 +74,22 @@ class YasumiService: NSObject {
                 
                 feed.id =       json["id"].string!
                 feed.userId =   json["user_id"].string!
-                feed.start =    json["start"].string!
-                feed.end =      json["end"].string!
-                feed.date =     json["date"].string!
+                feed.start =    json["start"].string ?? nil
+                feed.end =      json["end"].string ?? nil
+                feed.date =     json["date"].string ?? nil
                 feed.createAt = json["create_at"].string!
                 feed.reason =   json["reason"].string!
                 feed.emotion =  json["emotion"].string!
-                feed.status =   json["status"].string!
-                feed.time =     json["time"].string!
-                feed.userName = json["user_name"].string!
+                feed.status =   json["status"].string ?? nil
+                feed.time =     String(json["time"].float!)
+                feed.userName = json["user_name"].string ?? nil
                 feed.info =     json["info"].string!
+                
+                let user = User()
+                user.name =     json["author"]["name"].string ?? nil
+                user.avatar =   json["author"]["avatar"].string ?? nil
+                feed.author = user
+                
                 feeds.append(feed)
             }
             

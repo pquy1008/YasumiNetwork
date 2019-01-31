@@ -20,6 +20,7 @@
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
 		067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */; };
 		0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0685CEC621FB150D00F14E74 /* YasumiService.swift */; };
+		06FC862322029BD400906408 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FC862222029BD400906408 /* User.swift */; };
 		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
 		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
 		68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013A21F9C69E001C504F /* LeaveViewController.swift */; };
@@ -42,6 +43,7 @@
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrentViewController.swift; sourceTree = "<group>"; };
 		0685CEC621FB150D00F14E74 /* YasumiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiService.swift; sourceTree = "<group>"; };
+		06FC862222029BD400906408 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
 		68D9013A21F9C69E001C504F /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				06371C6622019A7000602909 /* Feed.swift */,
+				06FC862222029BD400906408 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-YasumiNetwork/Pods-YasumiNetwork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -293,6 +297,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +318,7 @@
 				0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */,
 				68D9012721F96BD2001C504F /* AddViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
+				06FC862322029BD400906408 /* User.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
 				68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */,
 				68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */,

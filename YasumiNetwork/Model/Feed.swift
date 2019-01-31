@@ -21,4 +21,5 @@ class Feed {
     var time:       String?
     var userName:   String?
     var info:       String?
+    var author:     User?
 }
