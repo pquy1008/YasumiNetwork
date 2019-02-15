@@ -8,29 +8,44 @@
 
 import UIKit
 
-class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class YasumiViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet var tableHeaderView: UIView!
     @IBOutlet weak var reasonTextField: UITextField!
     @IBOutlet weak var emotionTextField: UITextField!
+    
     @IBOutlet weak var typeTextField: UITextField!
-    @IBOutlet weak var inDayTextField: UITextField!
+    //    @IBOutlet weak var reasonTextField: UITextField!
+//    @IBOutlet weak var emotionTextField: UITextField!
+//    @IBOutlet weak var typeTextField: UITextField!
+//    @IBOutlet weak var inDayTextField: UITextField!
+//
+//    @IBOutlet weak var otherReasonTextField: UITextField!
+//
+//    @IBOutlet weak var dateTimeTextField: UITextField!
+//
     
-    @IBOutlet weak var otherReasonTextField: UITextField!
     
-    @IBOutlet weak var dateTimeTextField: UITextField!
     
     var currentTextField = UITextField()
-    
+
     var pickerView = UIPickerView()
     let datePicker = UIDatePicker()
-    
+
     var reasons: [String] = ["I feel not fine", "I have private reason", "other"]
     var emotions: [String] = ["happy", "sad", "afraid"]
     var types: [String] = ["Sick Leave", "Private Leave", "Annual Leave", "Compensation Work", "Suckle a Baby"]
     var inDays: [String] = ["ALL", "AM", "PM"]
-
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
+        
+        self.tableView.backgroundColor = UIColor.white
+        self.tableView.separatorColor = self.tableView.backgroundColor
     }
 
     // MARK: - Picker View
@@ -38,7 +53,7 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if currentTextField == reasonTextField {
             return reasons.count
@@ -46,13 +61,13 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             return emotions.count
         } else if currentTextField == typeTextField {
           return types.count
-        } else if currentTextField == inDayTextField {
-            return inDays.count
+//        } else if currentTextField == inDayTextField {
+//            return inDays.count
         }else {
             return 0
         }
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if currentTextField == reasonTextField {
             return reasons[row]
@@ -60,31 +75,34 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             return emotions[row]
         } else if currentTextField == typeTextField {
             return types[row]
-        } else if currentTextField == inDayTextField {
-            return inDays[row]
+//        } else if currentTextField == inDayTextField {
+//            return inDays[row]
         } else {
             return ""
         }
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.otherReasonTextField.isHidden = true
-        
+//        self.otherReasonTextField.isHidden = true
+
         if currentTextField == reasonTextField {
             reasonTextField.text = reasons[row]
-            
-            if reasonTextField.text == "other" {
-                self.otherReasonTextField.isHidden = false
-            }
+            self.view.endEditing(true)
+
+//            if reasonTextField.text == "other" {
+//                self.otherReasonTextField.isHidden = false
+//            }
         } else if currentTextField == emotionTextField {
             emotionTextField.text = emotions[row]
+            self.view.endEditing(true)
         } else if currentTextField == typeTextField {
             typeTextField.text = types[row]
-        } else if currentTextField == inDayTextField {
-            inDayTextField.text = inDays[row]
+            self.view.endEditing(true)
+//        } else if currentTextField == inDayTextField {
+//            inDayTextField.text = inDays[row]
         }
     }
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
@@ -95,28 +113,59 @@ class YasumiViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             currentTextField.inputView = pickerView
         } else if currentTextField == typeTextField {
             currentTextField.inputView = pickerView
-        } else if currentTextField == inDayTextField{
-            currentTextField.inputView = pickerView
-        } else if currentTextField == dateTimeTextField {
-            datePicker.datePickerMode = .date
-            datePicker.addTarget(self, action: #selector(datePickerValueChange(sender:)), for: .valueChanged)
-            dateTimeTextField.inputView = datePicker
+//        } else if currentTextField == inDayTextField{
+//            currentTextField.inputView = pickerView
+//        } else if currentTextField == dateTimeTextField {
+//            datePicker.datePickerMode = .date
+//            datePicker.addTarget(self, action: #selector(datePickerValueChange(sender:)), for: .valueChanged)
+//            dateTimeTextField.inputView = datePicker
         }
     }
-    
-    @objc func datePickerValueChange(sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.medium
-        formatter.timeStyle = DateFormatter.Style.none
-        
-        dateTimeTextField.text = formatter.string(from: sender.date)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+
+//    @objc func datePickerValueChange(sender: UIDatePicker) {
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = DateFormatter.Style.medium
+//        formatter.timeStyle = DateFormatter.Style.none
+//
+//        dateTimeTextField.text = formatter.string(from: sender.date)
+//    }
+//
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
     
     // MARK: - TEST
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return tableHeaderView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 180
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell", for: indexPath) as! ContentTableViewCell
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
     
     
 }
+
