@@ -12,4 +12,8 @@ class User {
     var id:     String = ""
     var name:   String?
     var avatar: String?
+    var dob: String?
+    var country: String?
+    var address: String?
+    var quote: String?
 }

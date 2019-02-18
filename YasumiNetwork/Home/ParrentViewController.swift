@@ -16,6 +16,9 @@ class ParrentViewController: UITabBarController {
         super.viewDidLoad()
 
         self.delegate = self
+        
+        // Load user profile at the begin
+        
     }
     
 }
