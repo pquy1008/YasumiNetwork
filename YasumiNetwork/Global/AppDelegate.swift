@@ -42,5 +42,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if Yasumi.session == nil {
+            Yasumi.session = User()
+        }
+        
+        let email = url.queryParameters!["email"]
+        Yasumi.session?.email = email!
+        
+        // Open splash app
+        let splashVC = UIStoryboard(name: "Quy", bundle: nil).instantiateViewController(withIdentifier: "splashBoard")
+        self.window?.rootViewController?.present(splashVC, animated: true, completion: nil)
+        
+        return true
+    }
 }
 
+
+extension URL {
+    public var queryParameters: [String: String]? {
+        guard
+            let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+            let queryItems = components.queryItems else { return nil }
+        return queryItems.reduce(into: [String: String]()) { (result, item) in
+            result[item.name] = item.value
+        }
+    }
+}

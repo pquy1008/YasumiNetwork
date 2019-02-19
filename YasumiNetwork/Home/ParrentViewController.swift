@@ -16,6 +16,9 @@ class ParrentViewController: UITabBarController {
         super.viewDidLoad()
 
         self.delegate = self
+        
+        // Load user profile at the begin
+        
     }
     
 }
@@ -55,11 +58,22 @@ extension ParrentViewController: UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if tabBarController.selectedIndex == 1 {
+        
+        switch tabBarController.selectedIndex {
+        case 1:
             self.selectedIndex = selectIndex
-            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "add") as! AddViewController
             self.present(vc, animated: true, completion: nil)
+            
+        case 2:
+            self.selectedIndex = selectIndex
+            let quyStoryboard = UIStoryboard(name: "Quy", bundle: nil)
+            let vc = quyStoryboard.instantiateViewController(withIdentifier: "profileNavBoard")
+            self.present(vc, animated: true, completion: nil)
+            
+        default:
+            break
+            // Do nothing
         }
         
         selectIndex = tabBarController.selectedIndex

@@ -16,10 +16,14 @@
 		0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E621EF188D0078452B /* LoginViewController.swift */; };
 		06371C642201938100602909 /* Yasumi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C632201938100602909 /* Yasumi.swift */; };
 		06371C6722019A7000602909 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C6622019A7000602909 /* Feed.swift */; };
+		067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067830CA221C048E001CFFAF /* SplashViewController.swift */; };
 		067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B721EF33CD004F09AE /* HomeViewController.swift */; };
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
 		067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */; };
 		0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0685CEC621FB150D00F14E74 /* YasumiService.swift */; };
+		06CF94A62216AE0F00DF5E8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF94A52216AE0F00DF5E8D /* User.swift */; };
+		06CF94A82216B71A00DF5E8D /* Quy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CF94A72216B71A00DF5E8D /* Quy.storyboard */; };
+		06CF94AA2216B74B00DF5E8D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF94A92216B74B00DF5E8D /* ProfileViewController.swift */; };
 		6813916322029FE800C008D4 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813916122029FE800C008D4 /* ContentTableViewCell.swift */; };
 		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
 		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
@@ -39,10 +43,14 @@
 		0609C0E621EF188D0078452B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06371C632201938100602909 /* Yasumi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yasumi.swift; sourceTree = "<group>"; };
 		06371C6622019A7000602909 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		067830CA221C048E001CFFAF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		067F98B721EF33CD004F09AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrentViewController.swift; sourceTree = "<group>"; };
 		0685CEC621FB150D00F14E74 /* YasumiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiService.swift; sourceTree = "<group>"; };
+		06CF94A52216AE0F00DF5E8D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		06CF94A72216B71A00DF5E8D /* Quy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quy.storyboard; sourceTree = "<group>"; };
+		06CF94A92216B74B00DF5E8D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6813916122029FE800C008D4 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +108,7 @@
 		06371C6522019A6000602909 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06CF94A52216AE0F00DF5E8D /* User.swift */,
 				06371C6622019A7000602909 /* Feed.swift */,
 			);
 			path = Model;
@@ -117,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0609C0E621EF188D0078452B /* LoginViewController.swift */,
+				067830CA221C048E001CFFAF /* SplashViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -147,6 +157,7 @@
 				067F98B921EF3986004F09AE /* NotificationViewController.swift */,
 				067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */,
 				68D9012621F96BD2001C504F /* AddViewController.swift */,
+				06CF94A92216B74B00DF5E8D /* ProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 				0609C0D621EF12D20078452B /* Main.storyboard */,
 				0609C0D421EF12D20078452B /* ViewController.swift */,
 				0609C0DB21EF12D50078452B /* LaunchScreen.storyboard */,
+				06CF94A72216B71A00DF5E8D /* Quy.storyboard */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -256,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06CF94A82216B71A00DF5E8D /* Quy.storyboard in Resources */,
 				0609C0DD21EF12D50078452B /* LaunchScreen.storyboard in Resources */,
 				0609C0DA21EF12D50078452B /* Assets.xcassets in Resources */,
 				0609C0D821EF12D20078452B /* Main.storyboard in Resources */,
@@ -297,6 +310,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-YasumiNetwork/Pods-YasumiNetwork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -304,6 +318,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,11 +336,14 @@
 				067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */,
 				06371C6722019A7000602909 /* Feed.swift in Sources */,
 				0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */,
+				067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */,
 				0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */,
 				68D9012721F96BD2001C504F /* AddViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
+				06CF94AA2216B74B00DF5E8D /* ProfileViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
 				68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */,
+				06CF94A62216AE0F00DF5E8D /* User.swift in Sources */,
 				68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */,
 				067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */,
 				0609C0D321EF12D20078452B /* AppDelegate.swift in Sources */,

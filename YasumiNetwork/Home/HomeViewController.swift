@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
 
+    var feeds = [Feed]()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         // Get feed
         YasumiService.shared.apiGetFeed { (feeds) in
-            
-            
-            
+            self.feeds = feeds
             self.tableView.reloadData()
         }
     }
@@ -27,11 +30,28 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10;
+        return feeds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
+
+        let avatarImageView = cell.contentView.viewWithTag(2000) as! UIImageView
+        avatarImageView.sd_setImage(with: URL(string: feeds[indexPath.row].author!.avatar ?? ""), completed: nil)
+
+        let nameLabel = cell.contentView.viewWithTag(2001) as! UILabel
+        nameLabel.text = feeds[indexPath.row].author?.name
+        
+        let emotionLable = cell.contentView.viewWithTag(2002) as! UILabel
+        emotionLable.text = feeds[indexPath.row].emotion
+        
+        let timeLabel = cell.contentView.viewWithTag(2003) as! UILabel
+        timeLabel.text = feeds[indexPath.row].time
+
+        
+        let reasonLabel = cell.contentView.viewWithTag(2007) as! UILabel
+        reasonLabel.text = feeds[indexPath.row].reason
+
         
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero

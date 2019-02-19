@@ -16,15 +16,13 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
+        let loginUrl = URL(string: "http://192.168.0.22/chatwork/api/login")
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(loginUrl!, options: [:], completionHandler: nil)
+        } else {
+            // Do nothing
+        }
     }
-    */
-
 }
