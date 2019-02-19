@@ -43,7 +43,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="WCC-Ox-ujT" kind="show" id="tSU-kw-E6r"/>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IzD-Hw-WjE"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcX-H0-JNj">
@@ -1159,7 +1159,7 @@
         <!--Parrent View Controller-->
         <scene sceneID="nsE-nu-Im5">
             <objects>
-                <tabBarController id="WCC-Ox-ujT" customClass="ParrentViewController" customModule="YasumiNetwork" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="homeBoard" id="WCC-Ox-ujT" customClass="ParrentViewController" customModule="YasumiNetwork" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uUI-i7-cei">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -16,6 +16,7 @@
 		0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E621EF188D0078452B /* LoginViewController.swift */; };
 		06371C642201938100602909 /* Yasumi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C632201938100602909 /* Yasumi.swift */; };
 		06371C6722019A7000602909 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C6622019A7000602909 /* Feed.swift */; };
+		067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067830CA221C048E001CFFAF /* SplashViewController.swift */; };
 		067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B721EF33CD004F09AE /* HomeViewController.swift */; };
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
 		067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */; };
@@ -42,6 +43,7 @@
 		0609C0E621EF188D0078452B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06371C632201938100602909 /* Yasumi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yasumi.swift; sourceTree = "<group>"; };
 		06371C6622019A7000602909 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		067830CA221C048E001CFFAF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		067F98B721EF33CD004F09AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrentViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				0609C0E621EF188D0078452B /* LoginViewController.swift */,
+				067830CA221C048E001CFFAF /* SplashViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */,
 				06371C6722019A7000602909 /* Feed.swift in Sources */,
 				0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */,
+				067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */,
 				0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */,
 				68D9012721F96BD2001C504F /* AddViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
