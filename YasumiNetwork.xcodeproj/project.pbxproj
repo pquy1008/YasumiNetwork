@@ -24,6 +24,7 @@
 		06CF94A62216AE0F00DF5E8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF94A52216AE0F00DF5E8D /* User.swift */; };
 		06CF94A82216B71A00DF5E8D /* Quy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CF94A72216B71A00DF5E8D /* Quy.storyboard */; };
 		06CF94AA2216B74B00DF5E8D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CF94A92216B74B00DF5E8D /* ProfileViewController.swift */; };
+		06D5B110221D0EDC00A6A5D3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D5B10F221D0EDC00A6A5D3 /* HistoryViewController.swift */; };
 		6813916322029FE800C008D4 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813916122029FE800C008D4 /* ContentTableViewCell.swift */; };
 		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
 		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
@@ -51,6 +52,7 @@
 		06CF94A52216AE0F00DF5E8D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		06CF94A72216B71A00DF5E8D /* Quy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quy.storyboard; sourceTree = "<group>"; };
 		06CF94A92216B74B00DF5E8D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		06D5B10F221D0EDC00A6A5D3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		6813916122029FE800C008D4 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		0609C0D121EF12D20078452B /* YasumiNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				06D5B10E221D0EBB00A6A5D3 /* Profile */,
 				06371C6522019A6000602909 /* Model */,
 				0685CEC521FB14FE00F14E74 /* Service */,
 				0609C0DE21EF12D50078452B /* Info.plist */,
@@ -157,7 +160,6 @@
 				067F98B921EF3986004F09AE /* NotificationViewController.swift */,
 				067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */,
 				68D9012621F96BD2001C504F /* AddViewController.swift */,
-				06CF94A92216B74B00DF5E8D /* ProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -172,6 +174,15 @@
 				06CF94A72216B71A00DF5E8D /* Quy.storyboard */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		06D5B10E221D0EBB00A6A5D3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				06CF94A92216B74B00DF5E8D /* ProfileViewController.swift */,
+				06D5B10F221D0EDC00A6A5D3 /* HistoryViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		0A229ED2DFF0A49264DBD7A8 /* Frameworks */ = {
@@ -348,6 +359,7 @@
 				067F98BC21EF3D0A004F09AE /* ParrentViewController.swift in Sources */,
 				0609C0D321EF12D20078452B /* AppDelegate.swift in Sources */,
 				6813916322029FE800C008D4 /* ContentTableViewCell.swift in Sources */,
+				06D5B110221D0EDC00A6A5D3 /* HistoryViewController.swift in Sources */,
 				0609C0E521EF15960078452B /* Designable.swift in Sources */,
 				06371C642201938100602909 /* Yasumi.swift in Sources */,
 			);

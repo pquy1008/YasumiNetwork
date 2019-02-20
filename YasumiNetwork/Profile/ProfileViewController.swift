@@ -37,6 +37,11 @@ class ProfileViewController: UIViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func showHistoryTapped(_ sender: Any) {
+        let historyVC = self.storyboard?.instantiateViewController(withIdentifier: "historyBoard")
+        self.navigationController?.pushViewController(historyVC!, animated: true)
+    }
+    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
 
         // Hide keyboard
@@ -69,18 +74,3 @@ class ProfileViewController: UIViewController {
         }
     }
 }
-
-//extension ProfileViewController: UITextViewDelegate {
-//    func textViewDidChange(_ textView: UITextView) {
-//
-//        // Caculate height
-//        let textView = view.viewWithTag(1005) as? UITextView
-//        textView?.sizeToFit()
-//
-//        textView?.constraints.filter({ (c) -> Bool in
-//            return c.identifier == "quoteHeight"
-//        }).first?.constant = textView?.contentSize.height ?? 17
-//    }
-//}
-
-

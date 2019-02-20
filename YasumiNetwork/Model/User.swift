@@ -17,4 +17,5 @@ class User {
     var country: String?
     var address: String?
     var quote: String?
+    var dol: String?            // Day off remain
 }
