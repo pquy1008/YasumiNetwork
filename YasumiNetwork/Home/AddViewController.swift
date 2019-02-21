@@ -35,8 +35,38 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        notification()
         setupView()
+    }
+    
+    func notification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.notificationListener(notification:)),
+            name: NSNotification.Name(rawValue: "sendData"),
+            object: nil)
+    }
+    
+    @objc func notificationListener(notification: NSNotification) {
+        // data
+        
+        print(notification.userInfo)
+        
+        
+        let data = [
+            "duration": "1",
+            "type": "1",
+            "date": "2019/12/20",
+            "reason": "weding",
+            "emotion": "happy"
+        ]
+        
+        YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: data, success: { (res) in
+            print("Done")
+        }) { (err) in
+            print("Done")
+        }
+        
     }
     
     func setupView() {
@@ -73,6 +103,11 @@ class AddViewController: UIViewController {
         
         childViewController.didMove(toParent: self)
     }
+    
+    @IBAction func sendSubmit(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("sendSubmit"), object: nil)
+    }
+    
     
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
