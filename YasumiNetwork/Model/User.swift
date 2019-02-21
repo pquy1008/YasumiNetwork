@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum Role {
+    case admin
+    case manager
+    case user
+}
+
 class User {
     var id:     String = ""
     var name:   String?
@@ -18,4 +24,5 @@ class User {
     var address: String?
     var quote: String?
     var dol: String?            // Day off remain
+    var role: Role = .user      // Role is user as default
 }

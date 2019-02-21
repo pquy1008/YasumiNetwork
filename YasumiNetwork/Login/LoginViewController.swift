@@ -23,7 +23,8 @@ class LoginViewController: UIViewController {
         }
         
 //        let email = "quypv@tmh-techlab.vn"
-        let email = "huancaopro93@gmail.com"
+//        let email = "huancaopro93@gmail.com"
+        let email = "thaovtp@tmh-techlab.vn"
         Yasumi.session?.email = email
         
         // Open splash app
