@@ -22,7 +22,7 @@ class YasumiService: NSObject {
             "user-email":   (Yasumi.session?.email)!,
         ]
         
-        print(endpoint)
+        print("ENDPOINT: \(endpoint)")
         Alamofire.request(endpoint, method: HTTPMethod.post, parameters: options, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -75,7 +75,7 @@ class YasumiService: NSObject {
             "user-email":   (Yasumi.session?.email)!,
         ]
 
-        print(endpoint)
+        print("ENDPOINT: \(endpoint)")
         Alamofire.request(endpoint, method: .get, parameters: options, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -118,6 +118,40 @@ class YasumiService: NSObject {
         }
     }
     
+    func apiGetNotification(options: [String:String], success : @escaping ([Feed])  -> Void) {
+        apiGet(path: "/chatwork/api/notification", options: options, success: { (res) in
+            var feeds = [Feed]()
+            
+            res.forEach { (_, json) in
+                let feed = Feed()
+                
+                feed.id =       json["id"].string!
+                feed.userId =   json["user_id"].string!
+                feed.start =    json["start"].string ?? nil
+                feed.end =      json["end"].string ?? nil
+                feed.date =     json["date"].string ?? nil
+                feed.createAt = json["create_at"].string!
+                feed.reason =   json["reason"].string!
+                feed.emotion =  json["emotion"].string!
+                feed.status =   json["status"].string ?? nil
+                feed.time =     String(json["time"].float!)
+                feed.userName = json["user_name"].string ?? nil
+                feed.info =     json["info"].string!
+                
+                let user = User()
+                user.name =     json["author"]["name"].string ?? nil
+                user.avatar =   json["author"]["avatar"].string ?? nil
+                feed.author = user
+                
+                feeds.append(feed)
+            }
+            
+            success(feeds)            
+        }) { (err) in
+            print(err)
+        }
+    }
+    
     func apiGetProfile(success : @escaping (_ result: User) -> Void) {
         apiGet(path: "/chatwork/api/viewProfile", options: [String:String](), success: { (res) in
 
@@ -130,8 +164,82 @@ class YasumiService: NSObject {
             user.address = res["address"].string ?? "-"
             user.quote = res["description"].string ?? "-"
             user.avatar = res["avatar"].string ?? "-"
+            user.dol = res["day_off_left"].string ?? "-"
+            
+            switch res["role"].string {
+            case "USER":
+                user.role = .user
+            case "MANAGER":
+                user.role = .manager
+            case "ADMIN":
+                user.role = .admin
+            default:
+                user.role = .user
+            }
             
             success(user)
+        }) { (err) in
+            print(err)
+        }
+    }
+    
+    func apiGetHistory(options: [String: String], success : @escaping (_ yasumi: [Feed], _ leave: [Feed]) -> Void) {
+        apiPost(path: "/chatwork/api/viewHistory", options: options, success: { (res) in
+            
+            var yasumis = [Feed]()
+            var leaves = [Feed]()
+            
+            let yasumiJson = res["Off"].array
+            let leaveJson = res["Leave"].array
+            
+            yasumiJson?.forEach({ (json) in
+                let feed = Feed()
+                
+                feed.id =       json["id"].string!
+                feed.userId =   json["user_id"].string!
+                feed.start =    json["start"].string ?? nil
+                feed.end =      json["end"].string ?? nil
+                feed.date =     json["date"].string ?? nil
+                feed.createAt = json["create_at"].string!
+                feed.reason =   json["reason"].string!
+                feed.emotion =  json["emotion"].string!
+                feed.status =   json["status"].string ?? nil
+                feed.time =     String(json["time"].float!)
+                feed.userName = json["user_name"].string ?? nil
+                
+                let user = User()
+                user.name =     json["author"]["name"].string ?? nil
+                user.avatar =   json["author"]["avatar"].string ?? nil
+                feed.author = user
+                
+                yasumis.append(feed)
+            })
+            
+            leaveJson?.forEach({ (json) in
+                let feed = Feed()
+                
+                feed.id =       json["id"].string!
+                feed.userId =   json["user_id"].string!
+                feed.start =    json["start"].string ?? nil
+                feed.end =      json["end"].string ?? nil
+                feed.date =     json["date"].string ?? nil
+                feed.createAt = json["create_at"].string!
+                feed.reason =   json["reason"].string!
+                feed.emotion =  json["emotion"].string!
+                feed.status =   json["status"].string ?? nil
+                feed.time =     String(json["time"].float!)
+                feed.userName = json["user_name"].string ?? nil
+                
+                let user = User()
+                user.name =     json["author"]["name"].string ?? nil
+                user.avatar =   json["author"]["avatar"].string ?? nil
+                feed.author = user
+                
+                leaves.append(feed)
+            })
+            
+            success(yasumis, leaves)
+            
         }) { (err) in
             print(err)
         }
