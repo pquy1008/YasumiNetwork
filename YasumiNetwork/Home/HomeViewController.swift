@@ -17,13 +17,16 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        // Get feed
+        
         YasumiService.shared.apiGetFeed { (feeds) in
             self.feeds = feeds
             self.tableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let selected = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selected, animated: false)
         }
     }
 }
@@ -58,5 +61,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.layoutMargins = UIEdgeInsets.zero
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let board = UIStoryboard(name: "Quy", bundle: nil)
+        let detailVC = board.instantiateViewController(withIdentifier: "detailBoard") as! YasumiDetailViewController
+
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

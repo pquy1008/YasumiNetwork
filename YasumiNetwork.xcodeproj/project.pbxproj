@@ -29,6 +29,7 @@
 		06DD46C1221E570F00C2E110 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DD46BF221E570F00C2E110 /* NotificationTableViewCell.xib */; };
 		06DD46C5221E5F3B00C2E110 /* AdminNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DD46C3221E5F3B00C2E110 /* AdminNotificationTableViewCell.swift */; };
 		06DD46C6221E5F3B00C2E110 /* AdminNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DD46C4221E5F3B00C2E110 /* AdminNotificationTableViewCell.xib */; };
+		06F86BCC221F9A4B0055409D /* YasumiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F86BCB221F9A4B0055409D /* YasumiDetailViewController.swift */; };
 		6813916322029FE800C008D4 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813916122029FE800C008D4 /* ContentTableViewCell.swift */; };
 		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
 		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
@@ -61,6 +62,7 @@
 		06DD46BF221E570F00C2E110 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		06DD46C3221E5F3B00C2E110 /* AdminNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		06DD46C4221E5F3B00C2E110 /* AdminNotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminNotificationTableViewCell.xib; sourceTree = "<group>"; };
+		06F86BCB221F9A4B0055409D /* YasumiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiDetailViewController.swift; sourceTree = "<group>"; };
 		6813916122029FE800C008D4 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				067F98B921EF3986004F09AE /* NotificationViewController.swift */,
 				067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */,
 				68D9012621F96BD2001C504F /* AddViewController.swift */,
+				06F86BCB221F9A4B0055409D /* YasumiDetailViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */,
 				68D9012721F96BD2001C504F /* AddViewController.swift in Sources */,
 				06DD46C0221E570F00C2E110 /* NotificationTableViewCell.swift in Sources */,
+				06F86BCC221F9A4B0055409D /* YasumiDetailViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
 				06CF94AA2216B74B00DF5E8D /* ProfileViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
