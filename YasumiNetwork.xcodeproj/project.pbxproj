@@ -16,6 +16,7 @@
 		0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E621EF188D0078452B /* LoginViewController.swift */; };
 		06371C642201938100602909 /* Yasumi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C632201938100602909 /* Yasumi.swift */; };
 		06371C6722019A7000602909 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C6622019A7000602909 /* Feed.swift */; };
+		066FA729221FD39100CC5068 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FA728221FD39100CC5068 /* Comment.swift */; };
 		067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067830CA221C048E001CFFAF /* SplashViewController.swift */; };
 		067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B721EF33CD004F09AE /* HomeViewController.swift */; };
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
@@ -49,6 +50,7 @@
 		0609C0E621EF188D0078452B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		06371C632201938100602909 /* Yasumi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yasumi.swift; sourceTree = "<group>"; };
 		06371C6622019A7000602909 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		066FA728221FD39100CC5068 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		067830CA221C048E001CFFAF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		067F98B721EF33CD004F09AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				06CF94A52216AE0F00DF5E8D /* User.swift */,
 				06371C6622019A7000602909 /* Feed.swift */,
+				066FA728221FD39100CC5068 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				06DD46C0221E570F00C2E110 /* NotificationTableViewCell.swift in Sources */,
 				06F86BCC221F9A4B0055409D /* YasumiDetailViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
+				066FA729221FD39100CC5068 /* Comment.swift in Sources */,
 				06CF94AA2216B74B00DF5E8D /* ProfileViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
 				68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */,

@@ -245,6 +245,43 @@ class YasumiService: NSObject {
         }
     }
     
+    func apiGetComment(isOff: Bool, options: [String: String], success : @escaping (_ result: [Comment]) -> Void) {
+        
+        var path = "/chatwork/api/viewLeaveDetail"
+        if isOff {
+            path = "/chatwork/api/viewOffDetail"
+        }
+        
+        apiPost(path: path, options: options, success: { (res) in
+            var cmts = [Comment]()
+            
+            let cmtJson = res["Comment"].array
+            
+            cmtJson!.forEach { (json) in
+                let c = Comment()
+                
+                c.id = "xxx"
+                c.avatar = json["User"]["avatar"].string ?? "-"
+                c.name = json["User"]["name"].string ?? "-"
+                c.msg = json["Comment"]["comment"].string ?? "-"
+                
+                cmts.append(c)
+            }
+            
+            success(cmts)
+        }) { (err) in
+            print(err)
+        }
+    }
+    
+    func apiPostComment(options: [String: String], success : @escaping () -> Void) {
+        apiPost(path: "/chatwork/api/addComment", options: options, success: { (res) in
+            // Do nothing
+        }) { (err) in
+            print("error")
+        }
+    }
+        
     func apiGetFeed(success : @escaping (_ result: [Feed]) -> Void) {
         apiGet(path: "/chatwork/api/home", options: [String:String](), success: { (res) in
             var feeds = [Feed]()

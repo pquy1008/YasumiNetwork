@@ -23,12 +23,6 @@ class HomeViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if let selected = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: selected, animated: false)
-        }
-    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -38,6 +32,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
+        cell.selectionStyle = .none
 
         let avatarImageView = cell.contentView.viewWithTag(2000) as! UIImageView
         avatarImageView.sd_setImage(with: URL(string: feeds[indexPath.row].author!.avatar ?? ""), completed: nil)
@@ -49,24 +44,24 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         emotionLable.text = feeds[indexPath.row].emotion
         
         let timeLabel = cell.contentView.viewWithTag(2003) as! UILabel
-        timeLabel.text = feeds[indexPath.row].time
+        timeLabel.text = feeds[indexPath.row].createAt
 
         
         let reasonLabel = cell.contentView.viewWithTag(2007) as! UILabel
         reasonLabel.text = feeds[indexPath.row].reason
-
         
-        cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let board = UIStoryboard(name: "Quy", bundle: nil)
-        let detailVC = board.instantiateViewController(withIdentifier: "detailBoard") as! YasumiDetailViewController
+        let detailNavVC = board.instantiateViewController(withIdentifier: "detailNavBoard") as! UINavigationController
+        
+        let detailVC = detailNavVC.viewControllers[0] as! YasumiDetailViewController
+        detailVC.article = feeds[indexPath.row]
 
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        self.present(detailNavVC, animated: true, completion: nil)
     }
 }

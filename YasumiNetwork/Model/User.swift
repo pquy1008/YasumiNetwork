@@ -26,3 +26,4 @@ class User {
     var dol: String?            // Day off remain
     var role: Role = .user      // Role is user as default
 }
+
