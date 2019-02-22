@@ -51,21 +51,31 @@ class AddViewController: UIViewController {
         // data
         
         print(notification.userInfo)
+        var data = notification.userInfo!
         
+        var dataFormat = ["type": data["type"]!, "dates": data["firstDay"]!, "reason": data["reason"]!, "emotion": data["emotion"]!]
+        print(dataFormat)
         
-        let data = [
-            "duration": "1",
-            "type": "1",
-            "date": "2019/12/20",
-            "reason": "weding",
-            "emotion": "happy"
-        ]
-        
-        YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: data, success: { (res) in
-            print("Done")
-        }) { (err) in
-            print("Done")
+        if (dataFormat["type"]! == nil) {
+            print("error")
+        } else {
+            print(dataFormat["type"]!)
         }
+        
+        
+//        let data = [
+//            "duration": "1",
+//            "type": "1",
+//            "dates": "2019/12/20",
+//            "reason": "weding",
+//            "emotion": "happy"
+//        ]
+//
+//        YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: data, success: { (res) in
+//            print("Done")
+//        }) { (err) in
+//            print("1")
+//        }
         
     }
     

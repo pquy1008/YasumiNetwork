@@ -34,6 +34,7 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var dateTimeIndex = 0
     
     var currentTextField = UITextField()
+    var typeRowDidSelected: Int?
 
     var pickerView = UIPickerView()
     let datePicker = UIDatePicker()
@@ -57,7 +58,7 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @objc func notificationListener(notification: NSNotification) {
-        let yasumiData = ["reason": reasonTextField.text, "emotion": emotionTextField.text, "type": typeTextField.text, "firstDay": dateTimeTextField.text, "inFirstDay": inDayTextField.text, "secondDay": dayOneDateTimeTextField.text, "inSecondDay": dayOneInDayTextField.text, "thirdDay": dayTwoDateTimeTextField.text, "inThirdDay": dayTwoInDayTextField.text]
+        let yasumiData = ["reason": reasonTextField.text!, "emotion": emotionTextField.text!, "type": typeRowDidSelected, "firstDay": dateTimeTextField.text!, "inFirstDay": inDayTextField.text!, "secondDay": dayOneDateTimeTextField.text!, "inSecondDay": dayOneInDayTextField.text!, "thirdDay": dayTwoDateTimeTextField.text!, "inThirdDay": dayTwoInDayTextField.text!] as [String : Any]
         NotificationCenter.default.post(name: Notification.Name("sendData"), object: nil, userInfo: yasumiData as [AnyHashable : Any])
     }
 
@@ -111,6 +112,7 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             emotionTextField.text = emotions[row]
             self.view.endEditing(true)
         } else if currentTextField == typeTextField {
+            typeRowDidSelected = row
             typeTextField.text = types[row]
             self.view.endEditing(true)
         } else if currentTextField == inDayTextField {
