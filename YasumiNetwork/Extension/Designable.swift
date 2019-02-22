@@ -79,3 +79,78 @@ extension UIButton {
     
 }
 
+
+
+extension NSDate {
+    
+    func convertDateTime(time: TimeInterval) -> String {
+        
+        let format = DateFormatter()
+        
+        // Set locale is independent of the device's locale
+        format.locale = Locale(identifier: "en_US_POSIX")
+        
+        format.dateStyle = .short
+        format.timeStyle = .short
+        format.dateFormat = "MM/dd HH:mm";
+        let date = NSDate(timeIntervalSince1970: time)
+        let dateStr = format.string(from: date as Date)
+        return dateStr
+        
+    }
+    
+    func getDateNow() -> NSDate? {
+        
+        let now: Date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        let today = formatter.string(from: now)
+        
+        return formatter.date(from: today) as NSDate?
+        
+    }
+    
+    func getDateTimeNow() -> NSDate? {
+        
+        let now: Date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let today = formatter.string(from: now)
+        
+        return formatter.date(from: today) as NSDate?
+        
+    }
+    
+    func convertTimeToTimeInterVal(time: String, format: String) -> TimeInterval? {
+        
+        let formatter = DateFormatter()
+        
+        //fix time for Twitter
+        let localeStr = "us"
+        formatter.locale = NSLocale(localeIdentifier: localeStr) as Locale
+        
+        formatter.dateFormat = format
+        let date: NSDate? = formatter.date(from: time) as NSDate?
+        
+        return date?.timeIntervalSince1970
+        
+    }
+    
+    /* convert NSDate to String as given format */
+    func format(_ format: String) ->String {
+        
+        let formater = DateFormatter()
+        formater.dateFormat = format
+        
+        return formater.string(from: self as Date)
+    }
+}
+
+extension Date {
+    func format(_ format: String) -> String {
+        let formater = DateFormatter()
+        formater.dateFormat = format
+        
+        return formater.string(from: self)
+    }
+}

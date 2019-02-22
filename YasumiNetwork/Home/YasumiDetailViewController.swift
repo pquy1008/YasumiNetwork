@@ -80,9 +80,22 @@ class YasumiDetailViewController: UIViewController {
         
         YasumiService.shared.apiPostComment(options: options, success: {
             self.view.endEditing(true)
+            self.commentTextField.text = ""
+            
+            // Apend comment
+            let c = Comment()
+            c.id = ""
+            c.avatar = Yasumi.session?.avatar
+            c.name = Yasumi.session?.name
+            let date = NSDate()
+            c.createAt = date.format("yyyy-MM-dd HH:mm")
+            c.msg = options["comment"]
+            
+            self.comments.append(c)
+            self.tableView.reloadData()
         }) {
             self.view.endEditing(true)
-        }        
+        }
     }
 }
 
