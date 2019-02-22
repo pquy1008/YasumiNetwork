@@ -15,6 +15,7 @@ class YasumiDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +38,28 @@ class YasumiDetailViewController: UIViewController {
         }
         
         tableView.tableFooterView = UIView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        keyboardHeightConstraint.constant = 0
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeightConstraint.constant = -keyboardSize.height
+            view.layoutIfNeeded()
+            
+            print("SHOW")
+            print(keyboardSize.height)
+        }
     }
     
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @objc func keyboardWillHide(notification: NSNotification) {
+        keyboardHeightConstraint.constant = 0
+        view.layoutIfNeeded()
+        
+        print("HIDE")
     }
     
     @IBAction func postCommentTapped(_ sender: UIButton) {
@@ -59,9 +78,11 @@ class YasumiDetailViewController: UIViewController {
             options["leave_id"] = "0"
         }
         
-        YasumiService.shared.apiPostComment(options: options) {
-            print("Done")
-        }
+        YasumiService.shared.apiPostComment(options: options, success: {
+            self.view.endEditing(true)
+        }) {
+            self.view.endEditing(true)
+        }        
     }
 }
 
@@ -113,6 +134,7 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             
             let timerLabel = cell.viewWithTag(1002) as! UILabel
             timerLabel.text = comments[indexPath.row - 1].createAt
+            timerLabel.text = "2018-2-12 00:23"
             
             let msgLabel = cell.viewWithTag(1003) as! UILabel
             msgLabel.text = comments[indexPath.row - 1].msg

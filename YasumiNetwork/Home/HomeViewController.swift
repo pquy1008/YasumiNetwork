@@ -23,6 +23,10 @@ class HomeViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -57,11 +61,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let board = UIStoryboard(name: "Quy", bundle: nil)
-        let detailNavVC = board.instantiateViewController(withIdentifier: "detailNavBoard") as! UINavigationController
-        
-        let detailVC = detailNavVC.viewControllers[0] as! YasumiDetailViewController
+        let detailVC = board.instantiateViewController(withIdentifier: "detailBoard") as! YasumiDetailViewController
         detailVC.article = feeds[indexPath.row]
 
-        self.present(detailNavVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
     }
 }

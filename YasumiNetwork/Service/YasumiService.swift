@@ -274,11 +274,13 @@ class YasumiService: NSObject {
         }
     }
     
-    func apiPostComment(options: [String: String], success : @escaping () -> Void) {
+    func apiPostComment(options: [String: String], success : @escaping () -> Void, error : @escaping () -> Void) {
         apiPost(path: "/chatwork/api/addComment", options: options, success: { (res) in
             // Do nothing
+            success()
         }) { (err) in
             print("error")
+            error()
         }
     }
         
