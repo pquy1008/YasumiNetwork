@@ -642,7 +642,7 @@
                                     <constraint firstAttribute="height" constant="1" id="WAR-FZ-WLg"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="leave" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8fs-1v-mei">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Coming late" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8fs-1v-mei">
                                 <rect key="frame" x="123" y="40" width="232" height="20"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -739,7 +739,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="izO-JU-J6N" id="NO4-Zv-Nvo"/>
+                                    <outlet property="delegate" destination="hLp-KG-C3L" id="DMb-5I-xiX"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="17:30" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WWy-bd-VlL">
@@ -752,7 +752,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="izO-JU-J6N" id="ob0-SM-z9p"/>
+                                    <outlet property="delegate" destination="hLp-KG-C3L" id="7ec-0a-R2g"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="mm/dd/yyyy" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRl-eB-mp8">
@@ -824,6 +824,9 @@
                     </view>
                     <connections>
                         <outlet property="emotionTextField" destination="War-Cs-ffH" id="ZMw-6J-0SE"/>
+                        <outlet property="leaveDateTextField" destination="DRl-eB-mp8" id="oJg-nN-S7s"/>
+                        <outlet property="leaveFromTextField" destination="KLM-mu-GMO" id="VZG-g9-7wA"/>
+                        <outlet property="leaveToTextField" destination="WWy-bd-VlL" id="I3E-10-VSk"/>
                         <outlet property="leaveTypeTextField" destination="8fs-1v-mei" id="lIT-5u-uW7"/>
                         <outlet property="reasonTextField" destination="o0A-ld-ZFX" id="T6e-6Q-399"/>
                     </connections>

@@ -48,35 +48,71 @@ class AddViewController: UIViewController {
     }
     
     @objc func notificationListener(notification: NSNotification) {
-        // data
+        var data = notification.userInfo! as! [String: String]
         
-        print(notification.userInfo)
-        var data = notification.userInfo!
-        
-        var dataFormat = ["type": data["type"]!, "dates": data["firstDay"]!, "reason": data["reason"]!, "emotion": data["emotion"]!]
-        print(dataFormat)
-        
-        if (dataFormat["type"]! == nil) {
-            print("error")
-        } else {
-            print(dataFormat["type"]!)
+        if segmentedControl.selectedSegmentIndex == 0 {
+            var dataSubmit : [String: String] = [:]
+            
+            if (data["reason"] == "" || data["emotion"] == "" || data["type"] == "" || data["firstDay"] == "" || data["inFirstDay"] == ""){
+                print("error")
+            } else {
+                if data["secondDay"] == "" && data["thirdDay"] == "" {
+                    dataSubmit = [
+                        "duration": "1",
+                        "type": data["type"]!,
+                        "dates": "\(data["firstDay"]!)-\(data["inFirstDay"]!)",
+                        "reason": data["reason"]!,
+                        "emotion": data["emotion"]!
+                    ]
+                } else if data["secondDay"] != "" && data["thirdDay"] == "" {
+                    dataSubmit = [
+                        "duration": "2",
+                        "type": data["type"]!,
+                        "dates": "\(data["firstDay"]!)-\(data["inFirstDay"]!),\(data["secondDay"]!)-\(data["inSecondDay"]!)",
+                        "reason": data["reason"]!,
+                        "emotion": data["emotion"]!
+                    ]
+                } else if data["secondDay"] != "" && data["thirdDay"] != "" {
+                    dataSubmit = [
+                        "duration": "3",
+                        "type": data["type"]!,
+                        "dates": "\(data["firstDay"]!)-\(data["inFirstDay"]!),\(data["secondDay"]!)-\(data["inSecondDay"]!),\(data["thirdDay"]!)-\(data["inThirdDay"]!)",
+                        "reason": data["reason"]!,
+                        "emotion": data["emotion"]!
+                    ]
+                } else {
+                    print("error")
+                }
+                
+                YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: dataSubmit, success: { (res) in
+                    print("done")
+                }) { (err) in
+                    print("err")
+                }
+            }
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            print(data)
+            
+            var leaveData : [String: String] = [:]
+            
+            if (data["reason"] == "" || data["emotion"] == "" || data["start_time"] == "" || data["end_time"] == "" || data["date"] == "") {
+                print("error")
+            } else {
+                leaveData = [
+                    "reason": data["reason"]!,
+                    "emotion": data["emotion"]!,
+                    "start": data["start_time"]!,
+                    "end": data["end_time"]!,
+                    "date": data["date"]!
+                ]
+                
+                YasumiService.shared.apiPost(path: "/chatwork/api/addLeave", options: leaveData, success: { (res) in
+                    print("done")
+                }) { (err) in
+                    print("err111")
+                }
+            }
         }
-        
-        
-//        let data = [
-//            "duration": "1",
-//            "type": "1",
-//            "dates": "2019/12/20",
-//            "reason": "weding",
-//            "emotion": "happy"
-//        ]
-//
-//        YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: data, success: { (res) in
-//            print("Done")
-//        }) { (err) in
-//            print("1")
-//        }
-        
     }
     
     func setupView() {
@@ -115,13 +151,14 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func sendSubmit(_ sender: Any) {
-        NotificationCenter.default.post(name: Notification.Name("sendSubmit"), object: nil)
+        if segmentedControl.selectedSegmentIndex == 0 {
+            NotificationCenter.default.post(name: Notification.Name("sendYasumiData"), object: nil)
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            NotificationCenter.default.post(name: Notification.Name("sendLeaveData"), object: nil)
+        }
     }
-    
     
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
-    
-    
 }
