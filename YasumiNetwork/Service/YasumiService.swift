@@ -21,7 +21,7 @@ class YasumiService: NSObject {
         let header: HTTPHeaders = [
             "user-email":   (Yasumi.session?.email)!,
         ]
-        
+
         print("ENDPOINT: \(endpoint)")
         Alamofire.request(endpoint, method: HTTPMethod.post, parameters: options, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
