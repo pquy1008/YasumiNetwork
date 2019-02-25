@@ -35,5 +35,25 @@ class NotificationTableViewCell: UITableViewCell {
         avatarImageView.sd_setImage(with: URL(string: joBoss?.avatar ?? ""), completed: nil)
         authorNameLabel.text = joBoss?.name ?? "-"
         msgLabel.text = "Your request was \(feed.status ?? "-")"
+        
+        if let isoDate = feed.createAt {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            
+            if let date = dateFormatter.date(from:isoDate) {
+                timerLabel.text = date.getElapsedInterval()
+            }
+        }
+        
+        if let isoDate = feed.approveAt {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            
+            if let date = dateFormatter.date(from:isoDate) {
+                timerLabel.text = date.getElapsedInterval()
+            }
+        }
     }
 }

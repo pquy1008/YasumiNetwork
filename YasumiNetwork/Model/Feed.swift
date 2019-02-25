@@ -15,11 +15,13 @@ class Feed {
     var end:        String?
     var date:       String?
     var createAt:   String?
+    var approveAt:  String?
     var reason:     String?
     var emotion:    String?
     var status:     String?
     var time:       String?
     var userName:   String?
     var info:       String?
+    var check:      String?
     var author:     User?
 }

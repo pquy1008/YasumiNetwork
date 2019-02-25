@@ -130,7 +130,9 @@ class YasumiService: NSObject {
                 feed.start =    json["start"].string ?? nil
                 feed.end =      json["end"].string ?? nil
                 feed.date =     json["date"].string ?? nil
+                
                 feed.createAt = json["create_at"].string!
+                feed.approveAt = json["approve_time"].string
                 feed.reason =   json["reason"].string!
                 feed.emotion =  json["emotion"].string!
                 feed.status =   json["status"].string ?? nil
@@ -178,6 +180,14 @@ class YasumiService: NSObject {
             }
             
             success(user)
+        }) { (err) in
+            print(err)
+        }
+    }
+    
+    func apiJoBossAction(options: [String: String], success : @escaping () -> Void) {
+        apiPost(path: "/chatwork/api/accept", options: options, success: { (res) in
+            success()
         }) { (err) in
             print(err)
         }
@@ -370,6 +380,7 @@ class YasumiService: NSObject {
                 feed.time =     String(json["time"].float!)
                 feed.userName = json["user_name"].string ?? nil
                 feed.info =     json["info"].string!
+                feed.check =    json["check"].string
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil
