@@ -60,6 +60,8 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row < 2 { return }
+        
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailBoard") as! YasumiDetailViewController
         detailVC.article = dataSource[indexPath.row - 2]
         self.navigationController?.pushViewController(detailVC, animated: true)

@@ -115,9 +115,8 @@ class YasumiDetailViewController: UIViewController {
                     print("APROVED")
                     
                     // Forece home reload data
-                    if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController {
-                        homeVC.refresh()
-                    }
+                    if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
+                    if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
                 })
             }
             
@@ -132,9 +131,8 @@ class YasumiDetailViewController: UIViewController {
                     print("DENIED")
                     
                     // Forece home reload data
-                    if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController {
-                        homeVC.refresh()
-                    }
+                    if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
+                    if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
                 })
             }
             

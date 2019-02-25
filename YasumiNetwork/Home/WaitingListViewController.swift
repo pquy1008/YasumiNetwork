@@ -11,6 +11,7 @@ import UIKit
 class WaitingListViewController: UIViewController {
 
     var feeds = [Feed]()
+    let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +21,16 @@ class WaitingListViewController: UIViewController {
         YasumiService.shared.apiGetWaitingList { (feeds) in
             self.feeds = feeds
             self.tableView.reloadData()
+        }
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh() {
+        YasumiService.shared.apiGetWaitingList { (feeds) in
+            self.feeds = feeds
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
