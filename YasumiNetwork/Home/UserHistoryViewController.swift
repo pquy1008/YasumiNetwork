@@ -22,8 +22,6 @@ class UserHistoryViewController: UIViewController {
         searchTextField.leftViewMode = .always
         searchTextField.leftView = UIImageView(image: UIImage(named: "search"))
         searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {

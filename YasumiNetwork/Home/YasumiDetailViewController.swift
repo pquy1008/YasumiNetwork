@@ -105,11 +105,37 @@ class YasumiDetailViewController: UIViewController {
             let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             let approveAction = UIAlertAction(title: "Approve", style: .cancel) { (a) in
-                //
+                let options = [
+                    "id":       self.article!.id,
+                    "info":     self.article!.info!,
+                    "status":   "1"
+                ]
+                
+                YasumiService.shared.apiJoBossAction(options: options, success: {
+                    print("APROVED")
+                    
+                    // Forece home reload data
+                    if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController {
+                        homeVC.refresh()
+                    }
+                })
             }
             
             let denyAction = UIAlertAction(title: "Deny", style: .default) { (a) in
-                //
+                let options = [
+                    "id":       self.article!.id,
+                    "info":     self.article!.info!,
+                    "status":   "3"
+                ]
+                
+                YasumiService.shared.apiJoBossAction(options: options, success: {
+                    print("DENIED")
+                    
+                    // Forece home reload data
+                    if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController {
+                        homeVC.refresh()
+                    }
+                })
             }
             
             alertVC.addAction(approveAction)
