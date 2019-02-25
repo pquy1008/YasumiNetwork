@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var quoteTextView: UITextView!
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var viewStaffButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,12 @@ class ProfileViewController: UIViewController {
         quoteTextView.textContainerInset = UIEdgeInsets.zero
         quoteTextView.textContainer.lineFragmentPadding = 0
         quoteTextView.text = profile?.quote ?? "-"
+        
+        if Yasumi.session!.role == .manager {
+            viewStaffButton.isHidden = false
+        } else {
+            viewStaffButton.isHidden = true
+        }
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -39,6 +46,11 @@ class ProfileViewController: UIViewController {
     
     @IBAction func showHistoryTapped(_ sender: Any) {
         let historyVC = self.storyboard?.instantiateViewController(withIdentifier: "historyBoard")
+        self.navigationController?.pushViewController(historyVC!, animated: true)
+    }
+    
+    @IBAction func showStaffTapped(_ sender: UIButton) {
+        let historyVC = self.storyboard?.instantiateViewController(withIdentifier: "userHistoryBoard")
         self.navigationController?.pushViewController(historyVC!, animated: true)
     }
     

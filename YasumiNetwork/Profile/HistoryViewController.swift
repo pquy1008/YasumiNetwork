@@ -9,6 +9,8 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
+    
+    var userProfile: User?
 
     var off = [Feed]()
     var leave = [Feed]()
@@ -21,8 +23,12 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if userProfile == nil {
+            userProfile = Yasumi.session
+        }
+        
         let optiosn = [
-            "id": Yasumi.session?.id ?? ""
+            "id": userProfile!.id
         ]
         YasumiService.shared.apiGetHistory(options: optiosn) { (off, leave) in
             self.off = off
@@ -52,6 +58,13 @@ class HistoryViewController: UIViewController {
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailBoard") as! YasumiDetailViewController
+        detailVC.article = dataSource[indexPath.row - 2]
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count + 2
     }
@@ -65,13 +78,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.separatorInset = UIEdgeInsets.zero
 
             let avatarImageView = cell.contentView.viewWithTag(1000) as? UIImageView
-            avatarImageView?.sd_setImage(with: URL(string: Yasumi.session?.avatar ?? ""), completed: nil)
+            avatarImageView?.sd_setImage(with: URL(string: userProfile?.avatar ?? ""), completed: nil)
             
             let nameTextField = cell.contentView.viewWithTag(1001) as? UITextField
-            nameTextField?.text = Yasumi.session?.name ?? "-"
+            nameTextField?.text = userProfile?.name ?? "-"
             
             let doLTextField = cell.contentView.viewWithTag(1002) as? UITextField
-            doLTextField?.text = Yasumi.session?.dol ?? "-"
+            doLTextField?.text = userProfile?.dol ?? "-"
             
             return cell
         case 1:

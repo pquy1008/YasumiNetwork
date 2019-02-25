@@ -59,13 +59,13 @@ extension ParrentViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
-        switch tabBarController.selectedIndex {
-        case 1:
+        switch viewController.title {
+        case "Add":
             self.selectedIndex = selectIndex
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "add") as! AddViewController
             self.present(vc, animated: true, completion: nil)
             
-        case 2:
+        case "User":
             self.selectedIndex = selectIndex
             let quyStoryboard = UIStoryboard(name: "Quy", bundle: nil)
             let vc = quyStoryboard.instantiateViewController(withIdentifier: "profileNavBoard")

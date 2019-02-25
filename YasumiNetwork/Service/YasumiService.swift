@@ -183,6 +183,39 @@ class YasumiService: NSObject {
         }
     }
     
+    func apiGetAllMember(success : @escaping (_ result: [User]) -> Void) {
+        apiPost(path: "/chatwork/api/getMember", options: [String: String](), success: { (res) in
+            var users = [User]()
+            
+            res.forEach { (_, json) in
+                let user = User()
+                
+                user.id = json["User"]["id"].string!
+                user.name = json["User"]["name"].string ?? ""
+                user.email = json["User"]["email"].string ?? ""
+                user.avatar = json["User"]["avatar"].string ?? ""
+                user.address = json["User"]["address"].string ?? ""
+                
+                switch json["Role"]["role"].string {
+                case "USER":
+                    user.role = .user
+                case "MANAGER":
+                    user.role = .manager
+                case "ADMIN":
+                    user.role = .admin
+                default:
+                    user.role = .user
+                }
+                
+                users.append(user)
+            }
+            
+            success(users)
+        }) { (err) in
+            print(err)
+        }
+    }
+    
     func apiGetHistory(options: [String: String], success : @escaping (_ yasumi: [Feed], _ leave: [Feed]) -> Void) {
         apiPost(path: "/chatwork/api/viewHistory", options: options, success: { (res) in
             
@@ -283,7 +316,41 @@ class YasumiService: NSObject {
             error()
         }
     }
-        
+
+    func apiGetWaitingList(success : @escaping (_ result: [Feed]) -> Void) {
+        apiGet(path: "/chatwork/api/waitingList", options: [String:String](), success: { (res) in
+            var feeds = [Feed]()
+            
+            res.forEach { (_, json) in
+                let feed = Feed()
+                
+                feed.id =       json["id"].string!
+                feed.userId =   json["user_id"].string!
+                feed.start =    json["start"].string ?? nil
+                feed.end =      json["end"].string ?? nil
+                feed.date =     json["date"].string ?? nil
+                feed.createAt = json["create_at"].string!
+                feed.reason =   json["reason"].string!
+                feed.emotion =  json["emotion"].string!
+                feed.status =   json["status"].string ?? nil
+                feed.time =     String(json["time"].float!)
+                feed.userName = json["user_name"].string ?? nil
+                feed.info =     json["info"].string!
+                
+                let user = User()
+                user.name =     json["author"]["name"].string ?? nil
+                user.avatar =   json["author"]["avatar"].string ?? nil
+                feed.author = user
+                
+                feeds.append(feed)
+            }
+            
+            success(feeds)
+        }) { (err) in
+            print(err)
+        }
+    }
+    
     func apiGetFeed(success : @escaping (_ result: [Feed]) -> Void) {
         apiGet(path: "/chatwork/api/home", options: [String:String](), success: { (res) in
             var feeds = [Feed]()
