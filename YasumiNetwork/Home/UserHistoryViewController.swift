@@ -22,6 +22,8 @@ class UserHistoryViewController: UIViewController {
         searchTextField.leftViewMode = .always
         searchTextField.leftView = UIImageView(image: UIImage(named: "search"))
         searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -44,8 +46,13 @@ extension UserHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         return users.count
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        cell.selectionStyle = .none
         
         let avatarImageView = cell.contentView.viewWithTag(1000) as! UIImageView
         let nameLabel = cell.contentView.viewWithTag(1001) as! UILabel
@@ -57,6 +64,12 @@ extension UserHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         
         cell.separatorInset = UIEdgeInsets.zero
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let historyVC = self.storyboard?.instantiateViewController(withIdentifier: "historyBoard") as! HistoryViewController
+        historyVC.userProfile = users[indexPath.row]
+        self.navigationController?.pushViewController(historyVC, animated: true)
     }
 }
 

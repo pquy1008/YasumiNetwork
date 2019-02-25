@@ -162,6 +162,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqs-Iy-wAX">
+                                <rect key="frame" x="127.5" y="388.5" width="120" height="30"/>
+                                <state key="normal" title="View staff history"/>
+                                <connections>
+                                    <action selector="showStaffTapped:" destination="El0-jp-BQj" eventType="touchUpInside" id="Kff-gM-JyQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -179,12 +186,14 @@
                             <constraint firstItem="Jb7-nI-81m" firstAttribute="leading" secondItem="91u-sB-hjQ" secondAttribute="leading" constant="12" id="LTI-KN-86N"/>
                             <constraint firstItem="DRF-nr-kuV" firstAttribute="top" secondItem="Jb7-nI-81m" secondAttribute="bottom" constant="8" id="Ntb-DZ-fOq"/>
                             <constraint firstItem="pZe-1a-6Rd" firstAttribute="top" secondItem="4fg-RA-ZZe" secondAttribute="bottom" constant="8" id="Ycr-FE-wfe"/>
+                            <constraint firstItem="lqs-Iy-wAX" firstAttribute="centerX" secondItem="91u-sB-hjQ" secondAttribute="centerX" id="Ygl-qd-nFy"/>
                             <constraint firstItem="zrt-dz-zqT" firstAttribute="leading" secondItem="ISc-DF-gJm" secondAttribute="leading" id="ZW1-o6-sie"/>
                             <constraint firstItem="4fg-RA-ZZe" firstAttribute="leading" secondItem="zrt-dz-zqT" secondAttribute="leading" id="a9d-LH-Y0w"/>
                             <constraint firstItem="pZe-1a-6Rd" firstAttribute="leading" secondItem="4fg-RA-ZZe" secondAttribute="leading" id="afs-Cc-F47"/>
                             <constraint firstItem="3X2-Qk-gH4" firstAttribute="top" secondItem="DRF-nr-kuV" secondAttribute="bottom" constant="8" id="bMR-lr-d5G"/>
                             <constraint firstItem="Jb7-nI-81m" firstAttribute="top" secondItem="91u-sB-hjQ" secondAttribute="top" constant="12" id="czV-ol-zcz"/>
                             <constraint firstItem="zrt-dz-zqT" firstAttribute="trailing" secondItem="Sgc-yO-VGv" secondAttribute="trailing" id="hUW-Xc-se8"/>
+                            <constraint firstItem="lqs-Iy-wAX" firstAttribute="top" secondItem="vYa-bh-fb6" secondAttribute="bottom" constant="16" id="iOJ-87-liG"/>
                             <constraint firstItem="7li-sG-wS0" firstAttribute="top" secondItem="3X2-Qk-gH4" secondAttribute="bottom" constant="8" id="jHG-aZ-Lea"/>
                             <constraint firstItem="zrt-dz-zqT" firstAttribute="centerY" secondItem="3X2-Qk-gH4" secondAttribute="centerY" id="o6Z-4Y-SbD"/>
                             <constraint firstItem="4fg-RA-ZZe" firstAttribute="top" secondItem="7li-sG-wS0" secondAttribute="top" id="qzo-8w-csU"/>
@@ -213,6 +222,7 @@
                         <outlet property="dobTextField" destination="OTq-p8-9cR" id="lzi-hN-5k2"/>
                         <outlet property="nameTextField" destination="STP-kH-jZS" id="mv4-wg-1Ib"/>
                         <outlet property="quoteTextView" destination="4fg-RA-ZZe" id="yMg-II-LmX"/>
+                        <outlet property="viewStaffButton" destination="lqs-Iy-wAX" id="jKz-se-VdV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ee1-ry-ZGd" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -44,12 +44,12 @@ class SplashViewController: UIViewController {
                 userHistoryVC.tabBarItem.title = nil
                 userHistoryVC.tabBarItem.image = UIImage(named: "history")
                 userHistoryVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
-                
-                // Get user list
-                YasumiService.shared.apiGetAllMember(success: { (users) in
-                    Yasumi.userLst = users
-                })
             }
+            
+            // Get user list
+            YasumiService.shared.apiGetAllMember(success: { (users) in
+                Yasumi.userLst = users
+            })
             
             self.present(homeVC, animated: true, completion: nil)
         }

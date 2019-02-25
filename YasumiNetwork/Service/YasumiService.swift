@@ -196,6 +196,17 @@ class YasumiService: NSObject {
                 user.avatar = json["User"]["avatar"].string ?? ""
                 user.address = json["User"]["address"].string ?? ""
                 
+                switch json["Role"]["role"].string {
+                case "USER":
+                    user.role = .user
+                case "MANAGER":
+                    user.role = .manager
+                case "ADMIN":
+                    user.role = .admin
+                default:
+                    user.role = .user
+                }
+                
                 users.append(user)
             }
             

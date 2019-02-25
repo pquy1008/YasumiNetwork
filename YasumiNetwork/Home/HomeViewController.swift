@@ -12,6 +12,7 @@ import SDWebImage
 class HomeViewController: UIViewController {
 
     var feeds = [Feed]()
+    let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +22,17 @@ class HomeViewController: UIViewController {
         YasumiService.shared.apiGetFeed { (feeds) in
             self.feeds = feeds
             self.tableView.reloadData()
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        YasumiService.shared.apiGetFeed { (feeds) in
+            self.feeds = feeds
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
