@@ -14,6 +14,8 @@
 		0609C0DD21EF12D50078452B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0609C0DB21EF12D50078452B /* LaunchScreen.storyboard */; };
 		0609C0E521EF15960078452B /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E421EF15960078452B /* Designable.swift */; };
 		0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E621EF188D0078452B /* LoginViewController.swift */; };
+		061F3A1422239D7D005E28A7 /* WaitingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061F3A1322239D7D005E28A7 /* WaitingListViewController.swift */; };
+		061F3A1622239D8F005E28A7 /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061F3A1522239D8F005E28A7 /* UserHistoryViewController.swift */; };
 		06371C642201938100602909 /* Yasumi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C632201938100602909 /* Yasumi.swift */; };
 		06371C6722019A7000602909 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C6622019A7000602909 /* Feed.swift */; };
 		066FA729221FD39100CC5068 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FA728221FD39100CC5068 /* Comment.swift */; };
@@ -48,6 +50,8 @@
 		0609C0DE21EF12D50078452B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0609C0E421EF15960078452B /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
 		0609C0E621EF188D0078452B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		061F3A1322239D7D005E28A7 /* WaitingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingListViewController.swift; sourceTree = "<group>"; };
+		061F3A1522239D8F005E28A7 /* UserHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryViewController.swift; sourceTree = "<group>"; };
 		06371C632201938100602909 /* Yasumi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yasumi.swift; sourceTree = "<group>"; };
 		06371C6622019A7000602909 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		066FA728221FD39100CC5068 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */,
 				68D9012621F96BD2001C504F /* AddViewController.swift */,
 				06F86BCB221F9A4B0055409D /* YasumiDetailViewController.swift */,
+				061F3A1322239D7D005E28A7 /* WaitingListViewController.swift */,
+				061F3A1522239D8F005E28A7 /* UserHistoryViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 			files = (
 				067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */,
 				06371C6722019A7000602909 /* Feed.swift in Sources */,
+				061F3A1622239D8F005E28A7 /* UserHistoryViewController.swift in Sources */,
 				0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */,
 				067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */,
 				0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */,
@@ -384,6 +391,7 @@
 				066FA729221FD39100CC5068 /* Comment.swift in Sources */,
 				06CF94AA2216B74B00DF5E8D /* ProfileViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
+				061F3A1422239D7D005E28A7 /* WaitingListViewController.swift in Sources */,
 				68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */,
 				06CF94A62216AE0F00DF5E8D /* User.swift in Sources */,
 				68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */,

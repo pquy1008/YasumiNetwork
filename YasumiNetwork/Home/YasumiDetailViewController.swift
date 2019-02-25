@@ -97,6 +97,44 @@ class YasumiDetailViewController: UIViewController {
             self.view.endEditing(true)
         }
     }
+    
+    //Action
+    @objc func optionTapped() {
+        if Yasumi.session!.role == .admin {
+            // show approve / deny
+            let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            let approveAction = UIAlertAction(title: "Approve", style: .cancel) { (a) in
+                //
+            }
+            
+            let denyAction = UIAlertAction(title: "Deny", style: .default) { (a) in
+                //
+            }
+            
+            alertVC.addAction(approveAction)
+            alertVC.addAction(denyAction)
+            
+            self.present(alertVC, animated: true, completion: nil)
+        } else {
+            // show edit / delete
+            let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            let approveAction = UIAlertAction(title: "Edit", style: .cancel) { (a) in
+                //
+            }
+            
+            let denyAction = UIAlertAction(title: "Delete", style: .default) { (a) in
+                //
+            }
+            
+            alertVC.addAction(approveAction)
+            alertVC.addAction(denyAction)
+            
+            self.present(alertVC, animated: true, completion: nil)
+
+        }
+    }
 }
 
 extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -109,6 +147,7 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             // Article cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
             cell.separatorInset = UIEdgeInsets.zero
+            cell.selectionStyle = .none
             
             let avatarImgView = cell.contentView.viewWithTag(2000) as! UIImageView
             avatarImgView.sd_setImage(with: URL(string: article?.author?.avatar ?? ""), completed: nil)
@@ -131,6 +170,17 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             
             let resonLable = cell.contentView.viewWithTag(2007) as! UILabel
             resonLable.text = article?.reason ?? "-"
+            
+            // Show / hide option button
+            let optionImageView = cell.contentView.viewWithTag(2009) as! UIImageView
+
+            if article?.author?.id == Yasumi.session?.id || Yasumi.session!.role == .admin {
+                optionImageView.isHidden = false
+                let singleTap = UITapGestureRecognizer(target: self, action: #selector(optionTapped))
+                optionImageView.addGestureRecognizer(singleTap)
+            } else {
+                optionImageView.isHidden = true
+            }
             
             return cell
         }
