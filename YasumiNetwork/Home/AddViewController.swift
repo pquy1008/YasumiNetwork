@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NVActivityIndicatorView
 
 class AddViewController: UIViewController {
     
@@ -54,7 +55,9 @@ class AddViewController: UIViewController {
             var dataSubmit : [String: String] = [:]
             
             if (data["reason"] == "" || data["emotion"] == "" || data["type"] == "" || data["firstDay"] == "" || data["inFirstDay"] == ""){
-                print("error")
+                self.hideIndicator()
+                self.alert(title: "Error", message: "Please fill all fields", index: 0)
+                
             } else {
                 if data["secondDay"] == "" && data["thirdDay"] == "" {
                     dataSubmit = [
@@ -81,22 +84,25 @@ class AddViewController: UIViewController {
                         "emotion": data["emotion"]!
                     ]
                 } else {
-                    print("error")
+                    self.hideIndicator()
+                    self.alert(title: "Error", message: "Please fill all fields", index: 0)
                 }
                 
                 YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: dataSubmit, success: { (res) in
-                    print("done")
+                    self.hideIndicator()
+                    self.alert(title: "Success", message: "Post success", index: 1)
+                    
                 }) { (err) in
-                    print("err")
+                    self.hideIndicator()
+                    self.alert(title: "Error", message: "API error", index: 2)
                 }
             }
         } else if segmentedControl.selectedSegmentIndex == 1 {
-            print(data)
-            
             var leaveData : [String: String] = [:]
             
             if (data["reason"] == "" || data["emotion"] == "" || data["start_time"] == "" || data["end_time"] == "" || data["date"] == "") {
-                print("error")
+                self.hideIndicator()
+                self.alert(title: "Error", message: "Please fill all fields", index: 0)
             } else {
                 leaveData = [
                     "reason": data["reason"]!,
@@ -107,9 +113,12 @@ class AddViewController: UIViewController {
                 ]
                 
                 YasumiService.shared.apiPost(path: "/chatwork/api/addLeave", options: leaveData, success: { (res) in
-                    print("done")
+                    self.hideIndicator()
+                    self.alert(title: "Success", message: "Post success", index: 1)
+                    
                 }) { (err) in
-                    print("err111")
+                    self.hideIndicator()
+                    self.alert(title: "Error", message: "API error", index: 0)
                 }
             }
         }
@@ -151,6 +160,8 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func sendSubmit(_ sender: Any) {
+        self.showIndicator(message: nil)
+        
         if segmentedControl.selectedSegmentIndex == 0 {
             NotificationCenter.default.post(name: Notification.Name("sendYasumiData"), object: nil)
         } else if segmentedControl.selectedSegmentIndex == 1 {
@@ -158,7 +169,42 @@ class AddViewController: UIViewController {
         }
     }
     
-    @IBAction func cancelAction(_ sender: Any) {
+    @IBAction func cancelAction(_ sender: Any?) {
         self.dismiss(animated: false, completion: nil)
+    }
+    
+    func showIndicator(message: String?) {
+        let data = ActivityData(size: CGSize(width: 30, height: 30),
+                                message: message,
+                                messageFont: nil,
+                                type: .ballBeat,
+                                color: nil,
+                                padding: nil,
+                                displayTimeThreshold: nil,
+                                minimumDisplayTime: 0,
+                                backgroundColor: nil,
+                                textColor: nil)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(data, nil)
+    }
+    
+    func hideIndicator() {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+    }
+    
+    func alert(title: String, message: String, index: Int){
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (res) in
+            if index == 1 {
+                self.cancelAction(nil)
+            } else {
+                // do nothing
+            }
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 }
