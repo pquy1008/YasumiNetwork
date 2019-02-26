@@ -90,10 +90,11 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
         
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
             cell.selectionStyle = .none
             cell.separatorInset = UIEdgeInsets.zero
 
@@ -105,21 +106,17 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             
             let doLTextField = cell.contentView.viewWithTag(1002) as? UITextField
             doLTextField?.text = userProfile?.dol ?? "-"
-            
-            return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "controlCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "controlCell", for: indexPath)
             cell.selectionStyle = .none
             cell.separatorInset = UIEdgeInsets.zero
 
             let segmentControll = cell.contentView.viewWithTag(1003) as? UISegmentedControl
             segmentControll?.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for: .valueChanged)
-            
-            return cell
         default:
             
             if isOffSelected {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "offCell", for: indexPath)
+                cell = tableView.dequeueReusableCell(withIdentifier: "offCell", for: indexPath)
                 
                 let timeLabelView = cell.contentView.viewWithTag(1000) as? UILabel
                 timeLabelView?.text = "in " + (dataSource[indexPath.row - 2].createAt ?? "-")
@@ -132,10 +129,8 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 let statusLabel = cell.contentView.viewWithTag(1003) as? UILabel
                 statusLabel?.text = dataSource[indexPath.row - 2].status ?? "-"
-                
-                return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "leaveCell", for: indexPath)
+                cell = tableView.dequeueReusableCell(withIdentifier: "leaveCell", for: indexPath)
                 
                 let timeLabelView = cell.contentView.viewWithTag(1000) as? UILabel
                 timeLabelView?.text = "in " + (dataSource[indexPath.row - 2].createAt ?? "-")
@@ -154,10 +149,19 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 let statusLabel = cell.contentView.viewWithTag(1005) as? UILabel
                 statusLabel?.text = dataSource[indexPath.row - 2].status ?? "-"
-                
-                return cell
+            }
+            
+            let s = dataSource[indexPath.row - 2].status
+            if s == "APPROVED" || s == "approved" {
+                cell.backgroundColor = UIColor(red: 78 / 255, green: 207 / 255, blue: 108 / 255, alpha: 0.15)
+            } else if s == "DENY" || s == "deny" || s == "DENIED" || s == "denied" {
+                cell.backgroundColor = UIColor(red: 1, green: 162 / 255, blue: 140 / 255, alpha: 0.15)
+            } else {
+                cell.backgroundColor = UIColor.white
             }
         }
-        
+
+        cell.selectionStyle = .none
+        return cell
     }
 }

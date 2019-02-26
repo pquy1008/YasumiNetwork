@@ -183,6 +183,15 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             cell.separatorInset = UIEdgeInsets.zero
             cell.selectionStyle = .none
             
+            let s = article!.status
+            if s == "APPROVED" || s == "approved" {
+                cell.backgroundColor = UIColor(red: 78 / 255, green: 207 / 255, blue: 108 / 255, alpha: 0.15)
+            } else if s == "DENY" || s == "deny" || s == "DENIED" || s == "denied" {
+                cell.backgroundColor = UIColor(red: 1, green: 162 / 255, blue: 140 / 255, alpha: 0.15)
+            } else {
+                cell.backgroundColor = UIColor.white
+            }
+            
             let avatarImgView = cell.contentView.viewWithTag(2000) as! UIImageView
             avatarImgView.sd_setImage(with: URL(string: article?.author?.avatar ?? ""), completed: nil)
             
