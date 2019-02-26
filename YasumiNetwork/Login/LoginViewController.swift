@@ -22,12 +22,13 @@ class LoginViewController: UIViewController {
             Yasumi.session = User()
         }
         
-//        let email = "quypv@tmh-techlab.vn"
+//        let email = "quypv@tmh-techlab.vn"            // role: User
 //        let email = "huancaopro93@gmail.com"
-        let email = "thaovtp@tmh-techlab.vn"
+//        let email = "thaovtp@tmh-techlab.vn"          // role: Manager
+        let email = "jo@tmh-techlab.vn"                 // role: Admin
         Yasumi.session?.email = email
         
-        // Open splash app
+//         Open splash app
         let splashVC = UIStoryboard(name: "Quy", bundle: nil).instantiateViewController(withIdentifier: "splashBoard")
         present(splashVC, animated: true, completion: nil)
         

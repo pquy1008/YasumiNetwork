@@ -14,8 +14,11 @@
 		0609C0DD21EF12D50078452B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0609C0DB21EF12D50078452B /* LaunchScreen.storyboard */; };
 		0609C0E521EF15960078452B /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E421EF15960078452B /* Designable.swift */; };
 		0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609C0E621EF188D0078452B /* LoginViewController.swift */; };
+		061F3A1422239D7D005E28A7 /* WaitingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061F3A1322239D7D005E28A7 /* WaitingListViewController.swift */; };
+		061F3A1622239D8F005E28A7 /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061F3A1522239D8F005E28A7 /* UserHistoryViewController.swift */; };
 		06371C642201938100602909 /* Yasumi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C632201938100602909 /* Yasumi.swift */; };
 		06371C6722019A7000602909 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06371C6622019A7000602909 /* Feed.swift */; };
+		066FA729221FD39100CC5068 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066FA728221FD39100CC5068 /* Comment.swift */; };
 		067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067830CA221C048E001CFFAF /* SplashViewController.swift */; };
 		067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B721EF33CD004F09AE /* HomeViewController.swift */; };
 		067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067F98B921EF3986004F09AE /* NotificationViewController.swift */; };
@@ -29,6 +32,7 @@
 		06DD46C1221E570F00C2E110 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DD46BF221E570F00C2E110 /* NotificationTableViewCell.xib */; };
 		06DD46C5221E5F3B00C2E110 /* AdminNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DD46C3221E5F3B00C2E110 /* AdminNotificationTableViewCell.swift */; };
 		06DD46C6221E5F3B00C2E110 /* AdminNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DD46C4221E5F3B00C2E110 /* AdminNotificationTableViewCell.xib */; };
+		06F86BCC221F9A4B0055409D /* YasumiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F86BCB221F9A4B0055409D /* YasumiDetailViewController.swift */; };
 		6813916322029FE800C008D4 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813916122029FE800C008D4 /* ContentTableViewCell.swift */; };
 		68D9012721F96BD2001C504F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9012621F96BD2001C504F /* AddViewController.swift */; };
 		68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D9013821F9C68F001C504F /* YasumiViewController.swift */; };
@@ -46,8 +50,11 @@
 		0609C0DE21EF12D50078452B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0609C0E421EF15960078452B /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
 		0609C0E621EF188D0078452B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		061F3A1322239D7D005E28A7 /* WaitingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingListViewController.swift; sourceTree = "<group>"; };
+		061F3A1522239D8F005E28A7 /* UserHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistoryViewController.swift; sourceTree = "<group>"; };
 		06371C632201938100602909 /* Yasumi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yasumi.swift; sourceTree = "<group>"; };
 		06371C6622019A7000602909 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		066FA728221FD39100CC5068 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		067830CA221C048E001CFFAF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		067F98B721EF33CD004F09AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		067F98B921EF3986004F09AE /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +68,7 @@
 		06DD46BF221E570F00C2E110 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		06DD46C3221E5F3B00C2E110 /* AdminNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		06DD46C4221E5F3B00C2E110 /* AdminNotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminNotificationTableViewCell.xib; sourceTree = "<group>"; };
+		06F86BCB221F9A4B0055409D /* YasumiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiDetailViewController.swift; sourceTree = "<group>"; };
 		6813916122029FE800C008D4 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		68D9012621F96BD2001C504F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		68D9013821F9C68F001C504F /* YasumiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasumiViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			children = (
 				06CF94A52216AE0F00DF5E8D /* User.swift */,
 				06371C6622019A7000602909 /* Feed.swift */,
+				066FA728221FD39100CC5068 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +178,9 @@
 				067F98B921EF3986004F09AE /* NotificationViewController.swift */,
 				067F98BB21EF3D0A004F09AE /* ParrentViewController.swift */,
 				68D9012621F96BD2001C504F /* AddViewController.swift */,
+				06F86BCB221F9A4B0055409D /* YasumiDetailViewController.swift */,
+				061F3A1322239D7D005E28A7 /* WaitingListViewController.swift */,
+				061F3A1522239D8F005E28A7 /* UserHistoryViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -368,14 +380,18 @@
 			files = (
 				067F98B821EF33CD004F09AE /* HomeViewController.swift in Sources */,
 				06371C6722019A7000602909 /* Feed.swift in Sources */,
+				061F3A1622239D8F005E28A7 /* UserHistoryViewController.swift in Sources */,
 				0609C0E721EF188D0078452B /* LoginViewController.swift in Sources */,
 				067830CB221C048E001CFFAF /* SplashViewController.swift in Sources */,
 				0685CEC721FB150D00F14E74 /* YasumiService.swift in Sources */,
 				68D9012721F96BD2001C504F /* AddViewController.swift in Sources */,
 				06DD46C0221E570F00C2E110 /* NotificationTableViewCell.swift in Sources */,
+				06F86BCC221F9A4B0055409D /* YasumiDetailViewController.swift in Sources */,
 				067F98BA21EF3986004F09AE /* NotificationViewController.swift in Sources */,
+				066FA729221FD39100CC5068 /* Comment.swift in Sources */,
 				06CF94AA2216B74B00DF5E8D /* ProfileViewController.swift in Sources */,
 				0609C0D521EF12D20078452B /* ViewController.swift in Sources */,
+				061F3A1422239D7D005E28A7 /* WaitingListViewController.swift in Sources */,
 				68D9013921F9C68F001C504F /* YasumiViewController.swift in Sources */,
 				06CF94A62216AE0F00DF5E8D /* User.swift in Sources */,
 				68D9013B21F9C69E001C504F /* LeaveViewController.swift in Sources */,
