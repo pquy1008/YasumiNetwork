@@ -60,6 +60,32 @@ extension WaitingListViewController: UITableViewDataSource, UITableViewDelegate 
         let timeLabel = cell.contentView.viewWithTag(2003) as! UILabel
         timeLabel.text = feeds[indexPath.row].createAt
         
+        // Off / leave
+        let typeLabel = cell.contentView.viewWithTag(2004) as! UILabel
+        let durationLabel = cell.contentView.viewWithTag(2005) as! UILabel
+        
+        if feeds[indexPath.row].info == "leave" {
+            typeLabel.text = "Would like to ask for \(feeds[indexPath.row].check ?? "-")"
+            
+            var start = feeds[indexPath.row].start ?? "-"
+            if start.count > 3 {
+                let endIndex = start.index(start.endIndex, offsetBy: -3)
+                start = start.substring(to: endIndex)
+            }
+            
+            var end = feeds[indexPath.row].end ?? "-"
+            if end.count > 3 {
+                let endIndex = end.index(end.endIndex, offsetBy: -3)
+                end = end.substring(to: endIndex)
+            }
+            
+            durationLabel.text = start + " -> " + end
+        } else {
+            typeLabel.text = "Would like to ask for off:"
+            
+            durationLabel.text = feeds[indexPath.row].date ?? "-"
+        }
+        
         let reasonLabel = cell.contentView.viewWithTag(2007) as! UILabel
         reasonLabel.text = feeds[indexPath.row].reason
         
