@@ -114,9 +114,14 @@ class YasumiDetailViewController: UIViewController {
                 YasumiService.shared.apiJoBossAction(options: options, success: {
                     print("APROVED")
                     
+                    // Update data in detail page
+                    self.article?.status = "APPROVED"
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                    
                     // Forece home reload data
                     if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
                     if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
+                    if let historyVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HistoryViewController { historyVC.refresh() }
                 })
             }
             
@@ -129,10 +134,15 @@ class YasumiDetailViewController: UIViewController {
                 
                 YasumiService.shared.apiJoBossAction(options: options, success: {
                     print("DENIED")
+
+                    // Update data in detail page
+                    self.article?.status = "DENIED"
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                     
                     // Forece home reload data
                     if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
                     if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
+                    if let historyVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HistoryViewController { historyVC.refresh() }
                 })
             }
             
@@ -144,16 +154,16 @@ class YasumiDetailViewController: UIViewController {
             // show edit / delete
             let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let approveAction = UIAlertAction(title: "Edit", style: .cancel) { (a) in
+            let editAction = UIAlertAction(title: "Edit", style: .cancel) { (a) in
                 //
             }
             
-            let denyAction = UIAlertAction(title: "Delete", style: .default) { (a) in
+            let deleteAction = UIAlertAction(title: "Delete", style: .default) { (a) in
                 //
             }
             
-            alertVC.addAction(approveAction)
-            alertVC.addAction(denyAction)
+            alertVC.addAction(editAction)
+            alertVC.addAction(deleteAction)
             
             self.present(alertVC, animated: true, completion: nil)
 

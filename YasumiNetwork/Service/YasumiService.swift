@@ -22,7 +22,9 @@ class YasumiService: NSObject {
             "user-email":   (Yasumi.session?.email)!,
         ]
 
-        print("ENDPOINT: \(endpoint)")
+        print("r: POST")
+        print("e: \(endpoint)")
+        print("p: \(options)")
         Alamofire.request(endpoint, method: HTTPMethod.post, parameters: options, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -75,7 +77,9 @@ class YasumiService: NSObject {
             "user-email":   (Yasumi.session?.email)!,
         ]
 
-        print("ENDPOINT: \(endpoint)")
+        print("r: GET")
+        print("e: \(endpoint)")
+        print("p: \(options)")
         Alamofire.request(endpoint, method: .get, parameters: options, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -249,7 +253,7 @@ class YasumiService: NSObject {
                 }
                 
                 if let dates = json["dates"].string {
-                    feed.date = dates
+                    feed.date = dates.replacingOccurrences(of: ",", with: ", ")
                 }
                 
                 feed.createAt = json["create_at"].string!
@@ -258,7 +262,7 @@ class YasumiService: NSObject {
                 feed.status =   json["status"].string ?? nil
                 feed.time =     String(json["time"].float!)
                 feed.userName = json["user_name"].string ?? nil
-                feed.info = "leave"
+                feed.info = "off"
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil
@@ -282,7 +286,7 @@ class YasumiService: NSObject {
                 feed.status =   json["status"].string ?? nil
                 feed.time =     String(json["time"].float!)
                 feed.userName = json["user_name"].string ?? nil
-                feed.info = "off"
+                feed.info = "leave"
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil
