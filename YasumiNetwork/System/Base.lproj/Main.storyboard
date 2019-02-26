@@ -1048,9 +1048,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="4Hw-mh-vpK" secondAttribute="trailing" constant="10" id="4jn-Uy-IbC"/>
                                                 <constraint firstItem="DC4-oO-1Ju" firstAttribute="top" secondItem="209-1Y-GW2" secondAttribute="bottom" constant="6" id="81z-AN-amS"/>
                                                 <constraint firstItem="4Hw-mh-vpK" firstAttribute="leading" secondItem="XMI-Is-ylH" secondAttribute="leading" constant="10" id="KdU-Kb-aJI"/>
-                                                <constraint firstItem="EGV-8L-Mph" firstAttribute="centerY" secondItem="qzk-ji-Cg1" secondAttribute="centerY" id="NVY-2C-He7"/>
                                                 <constraint firstItem="xL4-hf-D5L" firstAttribute="top" secondItem="XMI-Is-ylH" secondAttribute="top" constant="10" id="PTm-a0-D0j"/>
                                                 <constraint firstItem="qzk-ji-Cg1" firstAttribute="top" secondItem="xL4-hf-D5L" secondAttribute="bottom" constant="6" id="Peo-Mn-EQi"/>
+                                                <constraint firstItem="EGV-8L-Mph" firstAttribute="top" secondItem="qzk-ji-Cg1" secondAttribute="top" id="QUA-fL-bbN"/>
                                                 <constraint firstItem="xL4-hf-D5L" firstAttribute="leading" secondItem="XMI-Is-ylH" secondAttribute="leading" constant="10" id="QcV-Xb-drg"/>
                                                 <constraint firstItem="2Qn-ag-hEb" firstAttribute="leading" secondItem="209-1Y-GW2" secondAttribute="trailing" constant="10" id="WQ6-vA-o8o"/>
                                                 <constraint firstItem="2Qn-ag-hEb" firstAttribute="centerY" secondItem="209-1Y-GW2" secondAttribute="centerY" id="Wix-vq-dNR"/>

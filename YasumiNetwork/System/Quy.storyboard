@@ -948,8 +948,8 @@
                                                 <constraint firstItem="Hyh-y2-whV" firstAttribute="top" secondItem="EYJ-dj-GOj" secondAttribute="top" constant="10" id="Ruq-JF-7Z1"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ASm-wZ-3Xa" secondAttribute="trailing" id="SuP-va-ZFK"/>
                                                 <constraint firstItem="d3x-RV-QIt" firstAttribute="top" secondItem="DZT-Lr-WJW" secondAttribute="bottom" constant="4" id="TbC-ZJ-I1t"/>
+                                                <constraint firstItem="ASm-wZ-3Xa" firstAttribute="top" secondItem="U8I-ob-dQp" secondAttribute="top" id="Vri-fu-Tgg"/>
                                                 <constraint firstItem="Uj0-Kb-skM" firstAttribute="leading" secondItem="OfC-3B-OdZ" secondAttribute="trailing" constant="10" id="Wfi-KH-hbO"/>
-                                                <constraint firstItem="ASm-wZ-3Xa" firstAttribute="centerY" secondItem="U8I-ob-dQp" secondAttribute="centerY" id="aTu-6y-Vhq"/>
                                                 <constraint firstItem="DZT-Lr-WJW" firstAttribute="top" secondItem="OfC-3B-OdZ" secondAttribute="bottom" constant="4" id="boJ-AY-jXY"/>
                                                 <constraint firstItem="XtQ-iz-2l4" firstAttribute="leading" secondItem="3fM-Fs-9Nl" secondAttribute="trailing" constant="4" id="cJY-LO-rqZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="3fM-Fs-9Nl" secondAttribute="bottom" constant="11.5" id="fb9-LZ-ni7"/>
