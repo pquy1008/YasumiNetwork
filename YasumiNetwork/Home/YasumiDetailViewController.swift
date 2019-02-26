@@ -199,8 +199,31 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             let waitingLabel = cell.contentView.viewWithTag(2008) as! UILabel
             waitingLabel.text = article?.status ?? "-"
             
-            let offDate = cell.contentView.viewWithTag(2005) as! UILabel
-            offDate.text = article?.date ?? "-"
+            // Off / leave
+            let typeLabel = cell.contentView.viewWithTag(2004) as! UILabel
+            let durationLabel = cell.contentView.viewWithTag(2005) as! UILabel
+            
+            if article!.info == "leave" {
+                typeLabel.text = "Would like to ask for \(article!.check ?? "-")"
+                
+                var start = article!.start ?? "-"
+                if start.count > 3 {
+                    let endIndex = start.index(start.endIndex, offsetBy: -3)
+                    start = start.substring(to: endIndex)
+                }
+                
+                var end = article!.end ?? "-"
+                if end.count > 3 {
+                    let endIndex = end.index(end.endIndex, offsetBy: -3)
+                    end = end.substring(to: endIndex)
+                }
+                
+                durationLabel.text = start + " -> " + end
+            } else {
+                typeLabel.text = "Would like to ask for off:"
+                
+                durationLabel.text = article!.date ?? "-"
+            }
             
             let resonLable = cell.contentView.viewWithTag(2007) as! UILabel
             resonLable.text = article?.reason ?? "-"

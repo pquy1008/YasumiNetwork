@@ -387,7 +387,15 @@ class YasumiService: NSObject {
                 feed.userId =   json["user_id"].string!
                 feed.start =    json["start"].string ?? nil
                 feed.end =      json["end"].string ?? nil
-                feed.date =     json["date"].string ?? nil
+                
+                if let date = json["date"].string {
+                    feed.date = date
+                }
+                
+                if let dates = json["dates"].string {
+                    feed.date = dates.replacingOccurrences(of: ",", with: ", ")
+                }
+                
                 feed.createAt = json["create_at"].string!
                 feed.reason =   json["reason"].string!
                 feed.emotion =  json["emotion"].string!
