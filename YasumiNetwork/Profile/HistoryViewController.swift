@@ -41,6 +41,24 @@ class HistoryViewController: UIViewController {
         }
     }
     
+    func refresh() {
+        let optiosn = [
+            "id": userProfile!.id
+        ]
+        YasumiService.shared.apiGetHistory(options: optiosn) { (off, leave) in
+            self.off = off
+            self.leave = leave
+            
+            if self.isOffSelected {
+                self.dataSource = self.off
+            } else {
+                self.dataSource = self.leave
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
+    
     @objc func segmentedControlValueChanged(segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:

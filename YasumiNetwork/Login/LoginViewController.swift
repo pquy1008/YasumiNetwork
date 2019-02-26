@@ -16,6 +16,12 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // Auto login
+        loginButtonTapped(UIButton())
+    }
+    
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
         if Yasumi.session == nil {

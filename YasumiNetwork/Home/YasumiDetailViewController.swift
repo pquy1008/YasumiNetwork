@@ -114,9 +114,14 @@ class YasumiDetailViewController: UIViewController {
                 YasumiService.shared.apiJoBossAction(options: options, success: {
                     print("APROVED")
                     
+                    // Update data in detail page
+                    self.article?.status = "APPROVED"
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                    
                     // Forece home reload data
                     if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
                     if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
+                    if let historyVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HistoryViewController { historyVC.refresh() }
                 })
             }
             
@@ -129,10 +134,15 @@ class YasumiDetailViewController: UIViewController {
                 
                 YasumiService.shared.apiJoBossAction(options: options, success: {
                     print("DENIED")
+
+                    // Update data in detail page
+                    self.article?.status = "DENIED"
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                     
                     // Forece home reload data
                     if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
                     if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
+                    if let historyVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HistoryViewController { historyVC.refresh() }
                 })
             }
             
@@ -144,16 +154,16 @@ class YasumiDetailViewController: UIViewController {
             // show edit / delete
             let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let approveAction = UIAlertAction(title: "Edit", style: .cancel) { (a) in
+            let editAction = UIAlertAction(title: "Edit", style: .cancel) { (a) in
                 //
             }
             
-            let denyAction = UIAlertAction(title: "Delete", style: .default) { (a) in
+            let deleteAction = UIAlertAction(title: "Delete", style: .default) { (a) in
                 //
             }
             
-            alertVC.addAction(approveAction)
-            alertVC.addAction(denyAction)
+            alertVC.addAction(editAction)
+            alertVC.addAction(deleteAction)
             
             self.present(alertVC, animated: true, completion: nil)
 
@@ -189,8 +199,31 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             let waitingLabel = cell.contentView.viewWithTag(2008) as! UILabel
             waitingLabel.text = article?.status ?? "-"
             
-            let offDate = cell.contentView.viewWithTag(2005) as! UILabel
-            offDate.text = article?.date ?? "-"
+            // Off / leave
+            let typeLabel = cell.contentView.viewWithTag(2004) as! UILabel
+            let durationLabel = cell.contentView.viewWithTag(2005) as! UILabel
+            
+            if article!.info == "leave" {
+                typeLabel.text = "Would like to ask for \(article!.check ?? "-")"
+                
+                var start = article!.start ?? "-"
+                if start.count > 3 {
+                    let endIndex = start.index(start.endIndex, offsetBy: -3)
+                    start = start.substring(to: endIndex)
+                }
+                
+                var end = article!.end ?? "-"
+                if end.count > 3 {
+                    let endIndex = end.index(end.endIndex, offsetBy: -3)
+                    end = end.substring(to: endIndex)
+                }
+                
+                durationLabel.text = start + " -> " + end
+            } else {
+                typeLabel.text = "Would like to ask for off:"
+                
+                durationLabel.text = article!.date ?? "-"
+            }
             
             let resonLable = cell.contentView.viewWithTag(2007) as! UILabel
             resonLable.text = article?.reason ?? "-"

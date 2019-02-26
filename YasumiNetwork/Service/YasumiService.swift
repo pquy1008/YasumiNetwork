@@ -22,7 +22,9 @@ class YasumiService: NSObject {
             "user-email":   (Yasumi.session?.email)!,
         ]
 
-        print("ENDPOINT: \(endpoint)")
+        print("r: POST")
+        print("e: \(endpoint)")
+        print("p: \(options)")
         Alamofire.request(endpoint, method: HTTPMethod.post, parameters: options, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -75,7 +77,9 @@ class YasumiService: NSObject {
             "user-email":   (Yasumi.session?.email)!,
         ]
 
-        print("ENDPOINT: \(endpoint)")
+        print("r: GET")
+        print("e: \(endpoint)")
+        print("p: \(options)")
         Alamofire.request(endpoint, method: .get, parameters: options, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -205,6 +209,7 @@ class YasumiService: NSObject {
                 user.email = json["User"]["email"].string ?? ""
                 user.avatar = json["User"]["avatar"].string ?? ""
                 user.address = json["User"]["address"].string ?? ""
+                user.dol = json["User"]["day_off_left"].string ?? ""
                 
                 switch json["Role"]["role"].string {
                 case "USER":
@@ -242,13 +247,22 @@ class YasumiService: NSObject {
                 feed.userId =   json["user_id"].string!
                 feed.start =    json["start"].string ?? nil
                 feed.end =      json["end"].string ?? nil
-                feed.date =     json["date"].string ?? nil
+                
+                if let date = json["date"].string {
+                    feed.date = date
+                }
+                
+                if let dates = json["dates"].string {
+                    feed.date = dates.replacingOccurrences(of: ",", with: ", ")
+                }
+                
                 feed.createAt = json["create_at"].string!
                 feed.reason =   json["reason"].string!
                 feed.emotion =  json["emotion"].string!
                 feed.status =   json["status"].string ?? nil
                 feed.time =     String(json["time"].float!)
                 feed.userName = json["user_name"].string ?? nil
+                feed.info = "off"
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil
@@ -272,6 +286,7 @@ class YasumiService: NSObject {
                 feed.status =   json["status"].string ?? nil
                 feed.time =     String(json["time"].float!)
                 feed.userName = json["user_name"].string ?? nil
+                feed.info = "leave"
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil
@@ -372,7 +387,15 @@ class YasumiService: NSObject {
                 feed.userId =   json["user_id"].string!
                 feed.start =    json["start"].string ?? nil
                 feed.end =      json["end"].string ?? nil
-                feed.date =     json["date"].string ?? nil
+                
+                if let date = json["date"].string {
+                    feed.date = date
+                }
+                
+                if let dates = json["dates"].string {
+                    feed.date = dates.replacingOccurrences(of: ",", with: ", ")
+                }
+                
                 feed.createAt = json["create_at"].string!
                 feed.reason =   json["reason"].string!
                 feed.emotion =  json["emotion"].string!

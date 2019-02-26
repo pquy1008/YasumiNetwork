@@ -75,7 +75,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                 start = start.substring(to: endIndex)
             }
             
-            var end = feeds[indexPath.row].start ?? "-"
+            var end = feeds[indexPath.row].end ?? "-"
             if end.count > 3 {
                 let endIndex = end.index(end.endIndex, offsetBy: -3)
                 end = end.substring(to: endIndex)
@@ -84,6 +84,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             durationLabel.text = start + " -> " + end
         } else {
             typeLabel.text = "Would like to ask for off:"
+            
+            durationLabel.text = feeds[indexPath.row].date ?? "-"
         }
         
         let reasonLabel = cell.contentView.viewWithTag(2007) as! UILabel
