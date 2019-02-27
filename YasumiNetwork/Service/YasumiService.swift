@@ -341,6 +341,15 @@ class YasumiService: NSObject {
             error()
         }
     }
+    
+    func apiSaveInformation(options: [String: String], success : @escaping () -> Void, error : @escaping () -> Void) {
+        apiPost(path: "/chatwork/api/saveInfo", options: options, success: { (res) in
+            print("Update information OK")
+        }) { (err) in
+            print("Save information ERROR")
+            print(err)
+        }
+    }
 
     func apiGetWaitingList(success : @escaping (_ result: [Feed]) -> Void) {
         apiGet(path: "/chatwork/api/waitingList", options: [String:String](), success: { (res) in

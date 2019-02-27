@@ -55,6 +55,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let splashVC = UIStoryboard(name: "Quy", bundle: nil).instantiateViewController(withIdentifier: "splashBoard")
         self.window?.rootViewController?.present(splashVC, animated: true, completion: nil)
         
+        // Save information
+        let options = [
+            "email":            url.queryParameters!["email"]!,
+            "name":             url.queryParameters!["name"]!,
+            "avatar":           url.queryParameters!["avatar"]!,
+            "access_token":     url.queryParameters!["access_token"]!,
+            "refresh_token":    url.queryParameters!["refresh_token"]!,
+            "chatwork_id":      url.queryParameters!["chatwork_id"]!,
+        ]
+        YasumiService.shared.apiSaveInformation(options: options, success: {
+            //
+        }) {
+            //
+        }
+        
         return true
     }
 }
