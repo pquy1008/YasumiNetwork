@@ -150,6 +150,7 @@ class YasumiService: NSObject {
                 feed.time =     String(json["time"].float!)
                 feed.userName = json["user_name"].string ?? nil
                 feed.info =     json["info"].string!
+                feed.dayLeft =  json["day_left"].string
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil
