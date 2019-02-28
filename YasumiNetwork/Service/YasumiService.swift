@@ -151,6 +151,7 @@ class YasumiService: NSObject {
                 feed.userName = json["user_name"].string ?? nil
                 feed.info =     json["info"].string!
                 feed.dayLeft =  json["day_left"].string
+                feed.check =    json["check"].string
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil
