@@ -133,7 +133,14 @@ class YasumiService: NSObject {
                 feed.userId =   json["user_id"].string!
                 feed.start =    json["start"].string ?? nil
                 feed.end =      json["end"].string ?? nil
-                feed.date =     json["date"].string ?? nil
+                
+                if let date = json["date"].string {
+                    feed.date = date
+                }
+                
+                if let dates = json["dates"].string {
+                    feed.date = dates.replacingOccurrences(of: ",", with: ", ")
+                }
                 
                 feed.createAt = json["create_at"].string!
                 feed.approveAt = json["approve_time"].string
@@ -348,6 +355,7 @@ class YasumiService: NSObject {
         }) { (err) in
             print("Save information ERROR")
             print(err)
+            error()
         }
     }
 
@@ -422,6 +430,7 @@ class YasumiService: NSObject {
                 feed.userName = json["user_name"].string ?? nil
                 feed.info =     json["info"].string!
                 feed.check =    json["check"].string
+                feed.dayLeft =  json["day_left"].string
                 
                 let user = User()
                 user.name =     json["author"]["name"].string ?? nil

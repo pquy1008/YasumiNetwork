@@ -24,4 +24,5 @@ class Feed {
     var info:       String?
     var check:      String?
     var author:     User?
+    var dayLeft:    String?
 }

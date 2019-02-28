@@ -248,6 +248,9 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
                 optionImageView.isHidden = true
             }
             
+            let leftLabel = cell.contentView.viewWithTag(2010) as! UILabel
+            leftLabel.text = article!.dayLeft ?? "-"
+            
             return cell
         }
         else {
