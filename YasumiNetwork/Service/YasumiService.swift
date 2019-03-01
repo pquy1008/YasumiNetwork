@@ -169,7 +169,7 @@ class YasumiService: NSObject {
     
     func apiGetProfile(success : @escaping (_ result: User) -> Void) {
         apiGet(path: "/chatwork/api/viewProfile", options: [String:String](), success: { (res) in
-
+            
             let user = User()
             user.id = res["id"].string!
             user.name = res["name"].string ?? "-"
