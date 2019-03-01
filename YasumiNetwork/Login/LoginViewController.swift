@@ -31,18 +31,18 @@ class LoginViewController: UIViewController {
 //        let email = "quypv@tmh-techlab.vn"            // role: User
 //        let email = "huancaopro93@gmail.com"
 //        let email = "thaovtp@tmh-techlab.vn"          // role: Manager
-        let email = "jo@tmh-techlab.vn"                 // role: Admin
-        Yasumi.session?.email = email
-
-//         Open splash app
-        let splashVC = UIStoryboard(name: "Quy", bundle: nil).instantiateViewController(withIdentifier: "splashBoard")
-        present(splashVC, animated: true, completion: nil)
+//        let email = "jo@tmh-techlab.vn"                 // role: Admin
+//        Yasumi.session?.email = email
+//
+////         Open splash app
+//        let splashVC = UIStoryboard(name: "Quy", bundle: nil).instantiateViewController(withIdentifier: "splashBoard")
+//        present(splashVC, animated: true, completion: nil)
         
-//        let loginUrl = URL(string: "http://192.168.0.22/chatwork/api/login")
-//        if #available(iOS 10.0, *) {
-//            UIApplication.shared.open(loginUrl!, options: [:], completionHandler: nil)
-//        } else {
-//            // Do nothing
-//        }
+        let loginUrl = URL(string: "http://192.168.0.22/chatwork/api/login")
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(loginUrl!, options: [:], completionHandler: nil)
+        } else {
+            // Do nothing
+        }
     }
 }
