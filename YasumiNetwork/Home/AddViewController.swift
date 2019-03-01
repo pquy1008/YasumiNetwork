@@ -16,6 +16,9 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var dayOfLeftLabel: UILabel!
+    
+    
     lazy var yasumiViewController: YasumiViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "YasumiViewController") as! YasumiViewController
@@ -38,6 +41,11 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         notification()
         setupView()
+        
+        
+        dayOfLeftLabel.text = Yasumi.session?.dol
+        
+        
     }
     
     func notification() {
@@ -87,6 +95,11 @@ class AddViewController: UIViewController {
                     self.hideIndicator()
                     self.alert(title: "Error", message: "Please fill all fields", index: 0)
                 }
+                
+                // change day of left
+                let dayOfLeft = Int((Yasumi.session?.dol!)!)! - Int(dataSubmit["duration"]!)!
+                Yasumi.session?.dol = "\(dayOfLeft)"
+                
                 
                 YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: dataSubmit, success: { (res) in
                     self.hideIndicator()

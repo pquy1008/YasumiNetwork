@@ -191,6 +191,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="nbo-qm-wsn"/>
                     <connections>
+                        <outlet property="dayOfLeftLabel" destination="059-Rn-LO8" id="Tcg-ji-ydc"/>
                         <outlet property="segmentedControl" destination="hYd-uA-hO0" id="cLI-TL-oKO"/>
                         <outlet property="viewContainer" destination="XeC-iW-uo0" id="ODO-PG-ch1"/>
                     </connections>
