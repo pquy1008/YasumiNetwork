@@ -104,7 +104,7 @@ class YasumiDetailViewController: UIViewController {
             // show approve / deny
             let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let approveAction = UIAlertAction(title: "Approve", style: .cancel) { (a) in
+            let approveAction = UIAlertAction(title: "Approve", style: .default) { (a) in
                 let options = [
                     "id":       self.article!.id,
                     "info":     self.article!.info!,
@@ -146,8 +146,11 @@ class YasumiDetailViewController: UIViewController {
                 })
             }
             
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
             alertVC.addAction(approveAction)
             alertVC.addAction(denyAction)
+            alertVC.addAction(cancelAction)
             
             self.present(alertVC, animated: true, completion: nil)
         } else {
