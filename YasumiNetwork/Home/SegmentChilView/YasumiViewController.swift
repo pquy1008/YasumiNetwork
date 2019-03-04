@@ -16,6 +16,10 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var inDayTextField: UITextField!
     @IBOutlet weak var dateTimeTextField: UITextField!
     
+    // case other reason
+    @IBOutlet weak var otherReasonLabel: UILabel!
+    @IBOutlet weak var otherReasonTextField: UITextField!
+    
     // for case: add more day
     @IBOutlet weak var dayOneStackView: UIStackView!
     @IBOutlet weak var dayOneLineBreakStackView: UIStackView!
@@ -41,7 +45,7 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     var reasons: [String] = ["I feel not fine", "I have private reason", "other"]
     var emotions: [String] = ["happy", "sad", "afraid"]
-    var types: [String] = ["Sick Leave", "Private Leave", "Annual Leave", "Compensation Work", "Suckle a Baby"]
+    var types: [String] = ["Annual leave", "Private leave", "Sick leave", "Maternity", "Miscary", "Compensation Work", "Marriage", "Infant Sick", "Suckle a baby", "Bereavement"]
     var inDays: [String] = ["ALL", "AM", "PM"]
     
     override func viewDidLoad() {
@@ -62,7 +66,10 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @objc func notificationListener(notification: NSNotification) {
-        let yasumiData = ["reason": reasonTextField.text!, "emotion": emotionTextField.text!, "type": typeRowDidSelected, "firstDay": dateTimeTextField.text!, "inFirstDay": inDayTextField.text!, "secondDay": dayOneDateTimeTextField.text!, "inSecondDay": dayOneInDayTextField.text!, "thirdDay": dayTwoDateTimeTextField.text!, "inThirdDay": dayTwoInDayTextField.text!] as [String : Any]
+        let reason = (reasonTextField.text! == "other") ? otherReasonTextField.text! : reasonTextField.text!
+        
+        let yasumiData = ["reason": reason, "emotion": emotionTextField.text!, "type": typeRowDidSelected, "firstDay": dateTimeTextField.text!, "inFirstDay": inDayTextField.text!, "secondDay": dayOneDateTimeTextField.text!, "inSecondDay": dayOneInDayTextField.text!, "thirdDay": dayTwoDateTimeTextField.text!, "inThirdDay": dayTwoInDayTextField.text!] as [String : Any]
+        
         NotificationCenter.default.post(name: Notification.Name("sendData"), object: nil, userInfo: yasumiData)
     }
 
@@ -111,6 +118,12 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if currentTextField == reasonTextField {
             reasonTextField.text = reasons[row]
+            
+            if reasonTextField.text == "other" {
+                otherReasonLabel.isHidden = false
+                otherReasonTextField.isHidden = false
+                otherReasonTextField.becomeFirstResponder()
+            }
             self.view.endEditing(true)
         } else if currentTextField == emotionTextField {
             emotionTextField.text = emotions[row]

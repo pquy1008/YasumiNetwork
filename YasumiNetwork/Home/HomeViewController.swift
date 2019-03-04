@@ -23,9 +23,21 @@ class HomeViewController: UIViewController {
             self.feeds = feeds
             self.tableView.reloadData()
         }
+        notification()
         
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
+    }
+    
+    func notification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.notificationListener(notification:)),
+            name: NSNotification.Name(rawValue: "postSuccess"),
+            object: nil)
+    }
+    @objc func notificationListener(notification: NSNotification) {
+        refresh()
     }
     
     @objc func refresh() {
