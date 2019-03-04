@@ -18,7 +18,6 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var dayOfLeftLabel: UILabel!
     
-    
     lazy var yasumiViewController: YasumiViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "YasumiViewController") as! YasumiViewController
@@ -42,10 +41,7 @@ class AddViewController: UIViewController {
         notification()
         setupView()
         
-        
         dayOfLeftLabel.text = Yasumi.session?.dol
-        
-        
     }
     
     func notification() {
@@ -68,24 +64,36 @@ class AddViewController: UIViewController {
                 
             } else {
                 if data["secondDay"] == "" && data["thirdDay"] == "" {
+                    // calculation duration
+                    let durationFirstDay = (data["inFirstDay"] == "ALL") ? 1 : 0.5
+                    
                     dataSubmit = [
-                        "duration": "1",
+                        "duration": String(durationFirstDay),
                         "type": data["type"]!,
                         "dates": "\(data["firstDay"]!)-\(data["inFirstDay"]!)",
                         "reason": data["reason"]!,
                         "emotion": data["emotion"]!
                     ]
                 } else if data["secondDay"] != "" && data["thirdDay"] == "" {
+                    // calculation duration
+                    let durationFirstDay = (data["inFirstDay"] == "ALL") ? 1 : 0.5
+                    let durationSecondDay = (data["inSecondDay"] == "ALL") ? 1 : 0.5
+                    
                     dataSubmit = [
-                        "duration": "2",
+                        "duration": String(durationFirstDay + durationSecondDay),
                         "type": data["type"]!,
                         "dates": "\(data["firstDay"]!)-\(data["inFirstDay"]!),\(data["secondDay"]!)-\(data["inSecondDay"]!)",
                         "reason": data["reason"]!,
                         "emotion": data["emotion"]!
                     ]
                 } else if data["secondDay"] != "" && data["thirdDay"] != "" {
+                    // calculation duration
+                    let durationFirstDay = (data["inFirstDay"] == "ALL") ? 1 : 0.5
+                    let durationSecondDay = (data["inSecondDay"] == "ALL") ? 1 : 0.5
+                    let durationThirdDay = (data["inThirdDay"] == "ALL") ? 1 : 0.5
+                    
                     dataSubmit = [
-                        "duration": "3",
+                        "duration": String(durationFirstDay + durationSecondDay + durationThirdDay),
                         "type": data["type"]!,
                         "dates": "\(data["firstDay"]!)-\(data["inFirstDay"]!),\(data["secondDay"]!)-\(data["inSecondDay"]!),\(data["thirdDay"]!)-\(data["inThirdDay"]!)",
                         "reason": data["reason"]!,
@@ -97,14 +105,15 @@ class AddViewController: UIViewController {
                 }
                 
                 // change day of left
-                let dayOfLeft = Int((Yasumi.session?.dol!)!)! - Int(dataSubmit["duration"]!)!
+                let dayOfLeft = Double((Yasumi.session?.dol!)!)! - Double(dataSubmit["duration"]!)!
                 Yasumi.session?.dol = "\(dayOfLeft)"
-                
                 
                 YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: dataSubmit, success: { (res) in
                     self.hideIndicator()
                     self.alert(title: "Success", message: "Post success", index: 1)
                     
+                    // post notification when post success to reload home data
+                    NotificationCenter.default.post(name: Notification.Name("postSuccess"), object: nil)
                 }) { (err) in
                     self.hideIndicator()
                     self.alert(title: "Error", message: "API error", index: 2)
@@ -129,6 +138,8 @@ class AddViewController: UIViewController {
                     self.hideIndicator()
                     self.alert(title: "Success", message: "Post success", index: 1)
                     
+                    // post notification when post success to reload home data
+                    NotificationCenter.default.post(name: Notification.Name("postSuccess"), object: nil)
                 }) { (err) in
                     self.hideIndicator()
                     self.alert(title: "Error", message: "API error", index: 0)
