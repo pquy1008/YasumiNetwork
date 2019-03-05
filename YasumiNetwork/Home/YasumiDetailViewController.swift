@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class YasumiDetailViewController: UIViewController {
 
@@ -157,16 +158,45 @@ class YasumiDetailViewController: UIViewController {
             // show edit / delete
             let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let editAction = UIAlertAction(title: "Edit", style: .cancel) { (a) in
+            let editAction = UIAlertAction(title: "Edit", style: .default) { (a) in
                 //
             }
             
             let deleteAction = UIAlertAction(title: "Delete", style: .default) { (a) in
-                //
+                self.showIndicator(message: nil)
+                let options = [
+                    "id" : self.article?.id,
+                    "info": self.article?.info
+                ]
+                
+                YasumiService.shared.apiPost(path: "/chatwork/api/deleteRequest" , options: options as! [String : String], success: { (res) in
+                    self.hideIndicator()
+
+                    let alert = UIAlertController(title: "Success", message: "Delete success", preferredStyle: UIAlertController.Style.alert)
+
+                    // add an action (button)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (res) in
+
+                        // post notification when post success to reload home data
+                        NotificationCenter.default.post(name: Notification.Name("postSuccess"), object: nil)
+
+                        // back previous screen
+                        self.navigationController?.popViewController(animated: true)
+                    }))
+
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
+                }, error: { (err) in
+                    // error
+                })
             }
             
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (a) in
+                //
+            }
             alertVC.addAction(editAction)
             alertVC.addAction(deleteAction)
+            alertVC.addAction(cancelAction)
             
             self.present(alertVC, animated: true, completion: nil)
 
@@ -243,7 +273,7 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             // Show / hide option button
             let optionImageView = cell.contentView.viewWithTag(2009) as! UIImageView
 
-            if article?.author?.id == Yasumi.session?.id || Yasumi.session!.role == .admin {
+            if article?.userId == Yasumi.session?.id || Yasumi.session!.role == .admin {
                 optionImageView.isHidden = false
                 let singleTap = UITapGestureRecognizer(target: self, action: #selector(optionTapped))
                 optionImageView.addGestureRecognizer(singleTap)
@@ -278,5 +308,22 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    func showIndicator(message: String?) {
+        let data = ActivityData(size: CGSize(width: 30, height: 30),
+                                message: message,
+                                messageFont: nil,
+                                type: .ballBeat,
+                                color: nil,
+                                padding: nil,
+                                displayTimeThreshold: nil,
+                                minimumDisplayTime: 0,
+                                backgroundColor: nil,
+                                textColor: nil)
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(data, nil)
+    }
+    
+    func hideIndicator() {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+    }
     
 }

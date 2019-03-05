@@ -416,6 +416,12 @@ class YasumiService: NSObject {
                 feed.start =    json["start"].string ?? nil
                 feed.end =      json["end"].string ?? nil
                 
+                if let duration = json["duration"].string {
+                    feed.duration = Double(duration)!
+                } else {
+                    feed.duration = 0
+                }
+                
                 if let date = json["date"].string {
                     feed.date = date
                 }
@@ -443,6 +449,22 @@ class YasumiService: NSObject {
             }
             
             success(feeds)
+        }) { (err) in
+            print(err)
+        }
+    }
+    
+//    func apiGetDayOfLeft() {
+//        apiGet(path: "/chatwork/api/getDayOffLeft", options: [String : String](), success: { (res) in
+//            return res["day_off_left"]
+//        }) { (err) in
+//            print(err)
+//        }
+//    }
+    
+    func apiGetDayOfLeft(success : @escaping (_ result: String) -> Void) {
+        apiGet(path: "/chatwork/api/getDayOffLeft", options: [String:String](), success: { (res) in
+            success(res["day_off_left"].string!)
         }) { (err) in
             print(err)
         }

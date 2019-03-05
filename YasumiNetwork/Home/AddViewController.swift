@@ -41,7 +41,9 @@ class AddViewController: UIViewController {
         notification()
         setupView()
         
-        dayOfLeftLabel.text = Yasumi.session?.dol
+        YasumiService.shared.apiGetDayOfLeft { (result) in
+            self.dayOfLeftLabel.text = result
+        }
     }
     
     func notification() {
@@ -103,10 +105,6 @@ class AddViewController: UIViewController {
                     self.hideIndicator()
                     self.alert(title: "Error", message: "Please fill all fields", index: 0)
                 }
-                
-                // change day of left
-                let dayOfLeft = Double((Yasumi.session?.dol!)!)! - Double(dataSubmit["duration"]!)!
-                Yasumi.session?.dol = "\(dayOfLeft)"
                 
                 YasumiService.shared.apiPost(path: "/chatwork/api/addOff", options: dataSubmit, success: { (res) in
                     self.hideIndicator()

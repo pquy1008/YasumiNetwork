@@ -25,4 +25,5 @@ class Feed {
     var check:      String?
     var author:     User?
     var dayLeft:    String?
+    var duration:   Double = 0.0
 }
