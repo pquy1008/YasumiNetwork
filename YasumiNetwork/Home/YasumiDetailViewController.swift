@@ -282,7 +282,7 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             let leftLabel = cell.contentView.viewWithTag(2010) as! UILabel
-            leftLabel.text = article!.dayLeft ?? "-"
+            leftLabel.text = article!.dayLeft ?? "0"
             
             return cell
         }

@@ -19,13 +19,25 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         // Auto login
-//        loginButtonTapped(UIButton())
+        
+        wasLoggedIn()
+    }
+    
+    func wasLoggedIn() {
+        print(Yasumi.session)
+        if let _ = Yasumi.session {
+            // go to home
+        } else {
+            //
+        }
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
         if Yasumi.session == nil {
             Yasumi.session = User()
+            
+            print(Yasumi.session?.email)
         }
 
 //        let email = "quypv@tmh-techlab.vn"            // role: User
