@@ -85,4 +85,12 @@ class ProfileViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 }
