@@ -87,11 +87,18 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutAction(_ sender: Any) {
-        Yasumi.session = nil
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        let alert = UIAlertController(title: "", message: "Are you sure you want logout?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { (res) in
+            Yasumi.session = nil
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            
+            self.present(vc, animated: false, completion: nil)
+        }))
         
-        self.present(vc, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
