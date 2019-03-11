@@ -28,7 +28,7 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var leaveTypes: [String] = ["Coming Late", "Leave soon"]
     var reasons: [String] = []
-    var emotions: [String] = ["feeling happy", "feeling sad", "feeling afraid"]
+    var emotions: [String] = ["happy", "sad", "afraid"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -78,7 +78,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         nameLabel.text = feeds[indexPath.row].author?.name
         
         let emotionLable = cell.contentView.viewWithTag(2002) as! UILabel
-        emotionLable.text = feeds[indexPath.row].emotion
+        emotionLable.text = "feeling " + feeds[indexPath.row].emotion!
         
         let timeLabel = cell.contentView.viewWithTag(2003) as! UILabel
         timeLabel.text = feeds[indexPath.row].createAt

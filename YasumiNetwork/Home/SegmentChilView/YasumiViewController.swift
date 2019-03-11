@@ -44,7 +44,7 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     let datePicker = UIDatePicker()
 
     var reasons: [String] = ["I feel not fine", "I have private reason", "other"]
-    var emotions: [String] = ["feeling happy", "feeling sad", "feeling afraid"]
+    var emotions: [String] = ["happy", "sad", "afraid"]
     var types: [String] = ["Annual leave", "Private leave", "Sick leave", "Maternity", "Miscary", "Compensation Work", "Marriage", "Infant Sick", "Suckle a baby", "Bereavement"]
     var inDays: [String] = ["ALL", "AM", "PM"]
     
