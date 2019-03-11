@@ -200,7 +200,7 @@ class YasumiDetailViewController: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (a) in
                 //
             }
-            alertVC.addAction(editAction)
+//            alertVC.addAction(editAction)
             alertVC.addAction(deleteAction)
             alertVC.addAction(cancelAction)
             
