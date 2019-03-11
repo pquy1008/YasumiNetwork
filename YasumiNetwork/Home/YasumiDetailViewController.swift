@@ -232,7 +232,7 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             nameLabel.text = article?.author?.name ?? "-"
             
             let emotionLabel = cell.contentView.viewWithTag(2002) as! UILabel
-            emotionLabel.text = "- " + (article?.emotion ?? "-")
+            emotionLabel.text = "feeling " + (article?.emotion ?? "-")
             
             let timerLabel = cell.contentView.viewWithTag(2003) as! UILabel
             timerLabel.text = article?.createAt ?? "-"

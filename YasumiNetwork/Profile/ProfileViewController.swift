@@ -87,6 +87,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutAction(_ sender: Any) {
+        Yasumi.session = nil
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
         
