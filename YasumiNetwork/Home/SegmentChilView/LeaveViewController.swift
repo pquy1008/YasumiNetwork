@@ -28,7 +28,7 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var leaveTypes: [String] = ["Coming Late", "Leave soon"]
     var reasons: [String] = []
-    var emotions: [String] = ["happy", "sad", "afraid"]
+    var emotions: [String] = ["feeling happy", "feeling sad", "feeling afraid"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,9 +124,9 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             leaveToTextField.inputView = timePicker
         case reasonTextField:
             if leaveTypeTextField.text! == "Coming Late" {
-                reasons = ["I feel not fine", "I have private reason", ""]
+                reasons = ["I feel not fine", "I have private reason"]
             } else if leaveTypeTextField.text! == "Leave soon" {
-                reasons = ["I feel not fine", "I have private reason", "other"]
+                reasons = ["I feel not fine", "I have private reason"]
             } else {
                 reasons = []
             }

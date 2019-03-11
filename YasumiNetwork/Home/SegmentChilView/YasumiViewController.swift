@@ -44,7 +44,7 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     let datePicker = UIDatePicker()
 
     var reasons: [String] = ["I feel not fine", "I have private reason", "other"]
-    var emotions: [String] = ["happy", "sad", "afraid"]
+    var emotions: [String] = ["feeling happy", "feeling sad", "feeling afraid"]
     var types: [String] = ["Annual leave", "Private leave", "Sick leave", "Maternity", "Miscary", "Compensation Work", "Marriage", "Infant Sick", "Suckle a baby", "Bereavement"]
     var inDays: [String] = ["ALL", "AM", "PM"]
     
@@ -53,6 +53,14 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         inDayTextField.text = "ALL"
         dayOneInDayTextField.text = "ALL"
         dayTwoInDayTextField.text = "ALL"
+        
+        
+        // remove type: Annual leave when day of left = 0
+        YasumiService.shared.apiGetDayOfLeft { (result) in
+            if result == "0" {
+                self.types.remove(at: 0)
+            }
+        }
         
         notification()
     }
