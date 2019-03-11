@@ -16,6 +16,9 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var leaveFromTextField: UITextField!
     @IBOutlet weak var leaveToTextField: UITextField!
     
+    // for other reason
+    @IBOutlet weak var otherReasonLabel: UILabel!
+    @IBOutlet weak var otherReasonTextField: UITextField!
     
     var pickerView = UIPickerView()
     var datePicker = UIDatePicker()
@@ -26,7 +29,7 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var timePickerIndex = 0
     
     var leaveTypes: [String] = ["Coming Late", "Leave soon"]
-    var reasons: [String] = ["I feel not fine", "I have private reason"]
+    var reasons: [String] = ["I feel not fine", "I have private reason", "other"]
     var emotions: [String] = ["happy", "sad", "afraid"]
     
     override func viewDidLoad() {
@@ -46,8 +49,9 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @objc func notificationListener(notification: NSNotification) {
+        let reason = (reasonTextField.text! == "other") ? otherReasonTextField.text! : reasonTextField.text!
         let leaveData = [
-                "reason": reasonTextField.text!,
+                "reason": reason,
                 "emotion": emotionTextField.text!,
                 "date": leaveDateTextField.text!,
                 "start_time": leaveFromTextField.text!,
@@ -87,6 +91,13 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch currentTextField {
         case reasonTextField:
             reasonTextField.text = reasons[row]
+            
+            if reasonTextField.text == "other" {
+                otherReasonLabel.isHidden = false
+                otherReasonTextField.isHidden = false
+                otherReasonTextField.becomeFirstResponder()
+            }
+            
         case emotionTextField:
             emotionTextField.text = emotions[row]
         default:
@@ -115,6 +126,8 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             timePicker.datePickerMode = .time
             timePicker.addTarget(self, action: #selector(timePickerValueChange), for: .valueChanged)
             leaveToTextField.inputView = timePicker
+        case otherReasonTextField:
+            break
         default:
             currentTextField.inputView = pickerView
         }
