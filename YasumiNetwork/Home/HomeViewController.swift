@@ -25,12 +25,23 @@ class HomeViewController: UIViewController {
         }
         notification()
         
-        // Get notification data
-        YasumiService.shared.apiGetNotification(options: [String: String]()) { (feeds) in
-            if let tabItems = self.tabBarController?.tabBar.items {
-                // In this case we want to modify the badge number of the third tab:
-                let tabItem = tabItems[4]
-                tabItem.badgeValue = String(feeds.count)
+        if Yasumi.session?.role == .admin {
+            // Get notification data
+            YasumiService.shared.apiGetNotification(options: [String: String]()) { (feeds) in
+                if let tabItems = self.tabBarController?.tabBar.items {
+                    // In this case we want to modify the badge number of the third tab:
+                    let tabItem = tabItems[4]
+                    tabItem.badgeValue = String(feeds.count)
+                }
+            }
+        } else {
+            // Get notification data
+            YasumiService.shared.apiGetNotification(options: [String: String]()) { (feeds) in
+                if let tabItems = self.tabBarController?.tabBar.items {
+                    // In this case we want to modify the badge number of the third tab:
+                    let tabItem = tabItems[3]
+                    tabItem.badgeValue = String(feeds.count)
+                }
             }
         }
         
