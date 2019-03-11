@@ -17,6 +17,12 @@ class NotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if let tabItems = tabBarController?.tabBar.items {
+//            // In this case we want to modify the badge number of the third tab:
+//            let tabItem = tabItems[4]
+//            tabItem.badgeValue = "1"
+//        }
 
         // Register cell
         tableView.register(UINib(nibName: "NotificationTableViewCell", bundle: nil), forCellReuseIdentifier: "notificationCell")
@@ -24,6 +30,7 @@ class NotificationViewController: UIViewController {
         
         // Get notification data
         YasumiService.shared.apiGetNotification(options: [String: String]()) { (feeds) in
+            print(feeds.count)
             self.notificationFeeds = feeds
             self.tableView.reloadData()
         }
@@ -32,7 +39,7 @@ class NotificationViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    @objc func refresh(sender:AnyObject) {
+    @objc func refresh(sender:AnyObject?) {
         YasumiService.shared.apiGetNotification(options: [String: String]()) { (feeds) in
             self.notificationFeeds = feeds
             self.tableView.reloadData()

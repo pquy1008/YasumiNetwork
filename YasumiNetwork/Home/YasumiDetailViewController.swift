@@ -123,6 +123,9 @@ class YasumiDetailViewController: UIViewController {
                     if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
                     if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
                     if let historyVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HistoryViewController { historyVC.refresh() }
+                    if let notifiVC  = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? NotificationViewController { notifiVC.refresh(sender: nil)}
+                    
+                    self.updateTabBarBadgeValue()
                 })
             }
             
@@ -144,6 +147,9 @@ class YasumiDetailViewController: UIViewController {
                     if let homeVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HomeViewController { homeVC.refresh() }
                     if let waitingVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? WaitingListViewController { waitingVC.refresh() }
                     if let historyVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? HistoryViewController { historyVC.refresh() }
+                    if let notifiVC  = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2] as? NotificationViewController { notifiVC.refresh(sender: nil)}
+                    
+                    self.updateTabBarBadgeValue()
                 })
             }
             
@@ -200,6 +206,16 @@ class YasumiDetailViewController: UIViewController {
             
             self.present(alertVC, animated: true, completion: nil)
 
+        }
+    }
+    
+    // update notification number tabbar
+    private func updateTabBarBadgeValue() {
+        if let tabItems = self.tabBarController?.tabBar.items {
+            // In this case we want to modify the badge number of the third tab:
+            let tabItem = tabItems[4]
+            let currentBadgeValue = Int(tabItem.badgeValue!)!
+            tabItem.badgeValue = String(currentBadgeValue - 1)
         }
     }
 }

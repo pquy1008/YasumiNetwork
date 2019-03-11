@@ -37,8 +37,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lk-xX-dF3">
-                        <rect key="frame" x="19" y="65" width="36" height="88.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lk-xX-dF3">
+                        <rect key="frame" x="12" y="65" width="36" height="88.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -73,13 +73,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="qve-RB-OQz" firstAttribute="leading" secondItem="5AA-R9-9QS" secondAttribute="trailing" constant="6" id="7cX-K1-gDJ"/>
+                    <constraint firstAttribute="bottom" secondItem="2lk-xX-dF3" secondAttribute="bottom" constant="12" id="Afu-KS-6i0"/>
                     <constraint firstItem="qve-RB-OQz" firstAttribute="centerY" secondItem="5AA-R9-9QS" secondAttribute="centerY" id="Bdj-R5-uCB"/>
                     <constraint firstAttribute="trailing" secondItem="qve-RB-OQz" secondAttribute="trailing" constant="12" id="Km5-9c-nRV"/>
-                    <constraint firstAttribute="bottom" secondItem="2lk-xX-dF3" secondAttribute="bottom" constant="12" id="R8y-P0-bNL"/>
+                    <constraint firstItem="2lk-xX-dF3" firstAttribute="leading" secondItem="5AA-R9-9QS" secondAttribute="leading" id="TuD-N9-oBa"/>
                     <constraint firstItem="5AA-R9-9QS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="ivM-RA-PMh"/>
-                    <constraint firstItem="2lk-xX-dF3" firstAttribute="top" secondItem="5AA-R9-9QS" secondAttribute="bottom" constant="3" id="k2a-TD-dEC"/>
                     <constraint firstItem="5AA-R9-9QS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="nXz-8j-kqg"/>
-                    <constraint firstItem="2lk-xX-dF3" firstAttribute="centerX" secondItem="5AA-R9-9QS" secondAttribute="centerX" id="wz0-h4-nkl"/>
+                    <constraint firstItem="2lk-xX-dF3" firstAttribute="top" secondItem="5AA-R9-9QS" secondAttribute="bottom" constant="3" id="xmX-g4-AL7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

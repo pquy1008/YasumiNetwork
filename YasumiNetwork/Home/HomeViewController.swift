@@ -25,6 +25,15 @@ class HomeViewController: UIViewController {
         }
         notification()
         
+        // Get notification data
+        YasumiService.shared.apiGetNotification(options: [String: String]()) { (feeds) in
+            if let tabItems = self.tabBarController?.tabBar.items {
+                // In this case we want to modify the badge number of the third tab:
+                let tabItem = tabItems[4]
+                tabItem.badgeValue = String(feeds.count)
+            }
+        }
+        
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
