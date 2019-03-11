@@ -179,6 +179,7 @@ class YasumiViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @objc func datePickerValueChange(sender: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
+        datePicker.minimumDate = Date()
 
         if dateTimeIndex == 0 {
             dateTimeTextField.text = formatter.string(from: sender.date)

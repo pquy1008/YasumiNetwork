@@ -10,7 +10,6 @@ import UIKit
 
 class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
-    @IBOutlet weak var leaveTypeTextField: UITextField!
     @IBOutlet weak var reasonTextField: UITextField!
     @IBOutlet weak var emotionTextField: UITextField!
     @IBOutlet weak var leaveDateTextField: UITextField!
@@ -27,7 +26,7 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var timePickerIndex = 0
     
     var leaveTypes: [String] = ["Coming Late", "Leave soon"]
-    var reasons: [String] = []
+    var reasons: [String] = ["I feel not fine", "I have private reason"]
     var emotions: [String] = ["happy", "sad", "afraid"]
     
     override func viewDidLoad() {
@@ -64,8 +63,6 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch currentTextField {
-        case leaveTypeTextField:
-            return leaveTypes.count
         case reasonTextField:
             return reasons.count
         case emotionTextField:
@@ -77,8 +74,6 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch currentTextField {
-        case leaveTypeTextField:
-            return leaveTypes[row]
         case reasonTextField:
             return reasons[row]
         case emotionTextField:
@@ -90,8 +85,6 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch currentTextField {
-        case leaveTypeTextField:
-            leaveTypeTextField.text = leaveTypes[row]
         case reasonTextField:
             reasonTextField.text = reasons[row]
         case emotionTextField:
@@ -122,15 +115,6 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             timePicker.datePickerMode = .time
             timePicker.addTarget(self, action: #selector(timePickerValueChange), for: .valueChanged)
             leaveToTextField.inputView = timePicker
-        case reasonTextField:
-            if leaveTypeTextField.text! == "Coming Late" {
-                reasons = ["I feel not fine", "I have private reason"]
-            } else if leaveTypeTextField.text! == "Leave soon" {
-                reasons = ["I feel not fine", "I have private reason"]
-            } else {
-                reasons = []
-            }
-            currentTextField.inputView = pickerView
         default:
             currentTextField.inputView = pickerView
         }
@@ -139,6 +123,7 @@ class LeaveViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @objc func datePickerValueChange(sender: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
+        datePicker.minimumDate = Date()
         
         leaveDateTextField.text = formatter.string(from: sender.date)
     }
