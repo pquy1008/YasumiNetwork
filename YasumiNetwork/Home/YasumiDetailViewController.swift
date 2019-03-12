@@ -191,9 +191,7 @@ class YasumiDetailViewController: UIViewController {
                 }, error: { (err) in
                     self.hideIndicator()
                     
-                    print(err.localizedDescription)
-                    
-                    let alert = UIAlertController(title: nil, message: "The day has gone, can not delete", preferredStyle: .alert)
+                    let alert = UIAlertController(title: nil, message: err.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     
                     self.present(alert, animated: true, completion: nil)
