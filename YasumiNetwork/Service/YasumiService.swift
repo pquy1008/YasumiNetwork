@@ -52,6 +52,10 @@ class YasumiService: NSObject {
                     let err = NSError(domain: Yasumi.apiBaseUri, code: response.response?.statusCode ?? 00, userInfo: nil)
                     error(err)
                     return
+                } else if  response.response?.statusCode == 406 {
+                    let err = NSError(domain: Yasumi.apiBaseUri, code: 406, userInfo: [NSLocalizedDescriptionKey: "The day has gone, can not delete"])
+                    error(err)
+                    return
                 }
                 
                 // Nice

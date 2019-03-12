@@ -32,8 +32,9 @@ class NotificationTableViewCell: UITableViewCell {
     }
     
     func config(feed: Feed) {
-        avatarImageView.sd_setImage(with: URL(string: joBoss?.avatar ?? ""), completed: nil)
-        authorNameLabel.text = joBoss?.name ?? "-"
+//        avatarImageView.sd_setImage(with: URL(string: joBoss?.avatar ?? ""), completed: nil)
+//        authorNameLabel.text = joBoss?.name ?? "-"
+        authorNameLabel.text = "-"
         msgLabel.text = "Your request was \(feed.status ?? "-")"
         
         if let isoDate = feed.createAt {

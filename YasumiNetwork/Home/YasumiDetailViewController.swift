@@ -164,10 +164,6 @@ class YasumiDetailViewController: UIViewController {
             // show edit / delete
             let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let editAction = UIAlertAction(title: "Edit", style: .default) { (a) in
-                //
-            }
-            
             let deleteAction = UIAlertAction(title: "Delete", style: .default) { (a) in
                 self.showIndicator(message: nil)
                 let options = [
@@ -193,14 +189,20 @@ class YasumiDetailViewController: UIViewController {
                     // show the alert
                     self.present(alert, animated: true, completion: nil)
                 }, error: { (err) in
-                    // error
+                    self.hideIndicator()
+                    
+                    print(err.localizedDescription)
+                    
+                    let alert = UIAlertController(title: nil, message: "The day has gone, can not delete", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
                 })
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (a) in
                 //
             }
-//            alertVC.addAction(editAction)
             alertVC.addAction(deleteAction)
             alertVC.addAction(cancelAction)
             
