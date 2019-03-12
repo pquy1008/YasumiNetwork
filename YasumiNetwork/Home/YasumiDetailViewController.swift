@@ -315,7 +315,7 @@ extension YasumiDetailViewController: UITableViewDelegate, UITableViewDataSource
             
             let timerLabel = cell.viewWithTag(1002) as! UILabel
             timerLabel.text = comments[indexPath.row - 1].createAt
-            timerLabel.text = "2018-2-12 00:23"
+//            timerLabel.text = "2018-2-12 00:23"
             
             let msgLabel = cell.viewWithTag(1003) as! UILabel
             msgLabel.text = comments[indexPath.row - 1].msg
