@@ -41,6 +41,7 @@ class NotificationViewController: UIViewController {
     
     @objc func refresh(sender:AnyObject?) {
         YasumiService.shared.apiGetNotification(options: [String: String]()) { (feeds) in
+            print(1)
             self.notificationFeeds = feeds
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
